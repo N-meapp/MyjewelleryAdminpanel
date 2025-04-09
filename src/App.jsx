@@ -1,7 +1,17 @@
-export default function App(){
-  return(
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./Pages/Home";
+import Categories from "./Pages/Categories";
+
+export default function App() {
+  return (
     <>
-    <h1 className="text-[red]"></h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/categories" element={<Categories />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
