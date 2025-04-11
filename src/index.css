@@ -3,12 +3,51 @@
 @tailwind utilities;
 
 
-.poppins-regular {
+
+.robo::placeholder {
+    font-family: "Roboto Flex", sans-serif;
+  }
+  
+
+  .robo{
+    font-family: "Roboto Flex", sans-serif;
+  }
+
+  .instrument-san{
+    font-family: "Instrument Sans", sans-serif;
+
+  }
+
+
+  @font-face {
+    font-family: 'bolkit';
+    src: url('/public/assets/Fonts/Bolkit.ttf') format('truetype');
+  }
+
+  .bolkit{
+    font-family: bolkit;
+  }
+
+  body{
+    background-color: #FAFAFA;
+  }
+
+  .poppins{
     font-family: "Poppins", sans-serif;
-    font-style: normal;
+  }
+
+
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hidden {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
   }
 
 
   .alice{
     font-family: "Alice", serif;
   }
+
