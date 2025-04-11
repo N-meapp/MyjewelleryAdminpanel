@@ -42,39 +42,39 @@ const CategoryList = () => {
           onMouseMove={handleMouseMove}
         >
           <div className='flex gap-3 min-w-max w-[500px]'>
-            <div className='w-[150px] flex items-center gap-2'>
+            <div className='w-[150px] flex items-center gap-2 select-none'>
               <img className='w-[20px]' src='/public/assets/Images/category/all.png' alt='icon' />
               <p className='poppins-regular text-[13px] text-[#474141] font-[500]'>All Jewelry</p>
             </div>
-            <div className='w-[150px] flex items-center gap-2'>
+            <div className='w-[150px] flex items-center gap-2 select-none'>
               <img className='w-[20px]' src='/public/assets/Images/category/2.png' alt='icon' />
               <p className='poppins-regular text-[13px] text-[#474141] font-[500]'>Gold</p>
             </div>
-            <div className='w-[150px] flex items-center gap-2'>
+            <div className='w-[150px] flex items-center gap-2 select-none'>
               <img className='w-[20px]' src='/public/assets/Images/category/3.png' alt='icon' />
               <p className='poppins-regular text-[13px] text-[#474141] font-[500]'>Diamond</p>
             </div>
-            <div className='w-[150px] flex items-center gap-2'>
+            <div className='w-[150px] flex items-center gap-2 select-none'>
               <img className='w-[20px]' src='/public/assets/Images/category/4.png' alt='icon' />
               <p className='poppins-regular text-[13px] text-[#474141] font-[500]'>Silver</p>
             </div>
-            <div className='w-[150px] flex items-center gap-2'>
+            <div className='w-[150px] flex items-center gap-2 select-none'>
               <img className='w-[20px]' src='/public/assets/Images/category/5.png' alt='icon' />
               <p className='poppins-regular text-[13px] text-[#474141] font-[500]'>Wedding</p>
             </div>
-            <div className='w-[150px] flex items-center gap-2'>
+            <div className='w-[150px] flex items-center gap-2 select-none'>
               <img className='w-[20px]' src='/public/assets/Images/category/6.png' alt='icon' />
               <p className='poppins-regular text-[13px] text-[#474141] font-[500]'>Handcrafted</p>
             </div>
-            <div className='w-[150px] flex items-center gap-2'>
+            <div className='w-[150px] flex items-center gap-2 select-none'>
               <img className='w-[20px]' src='/public/assets/Images/category/7.png' alt='icon' />
               <p className='poppins-regular text-[13px] text-[#474141] font-[500]'>Daily Wear</p>
             </div>
-            <div className='w-[150px] flex items-center gap-2'>
+            <div className='w-[150px] flex items-center gap-2 select-none'>
               <img className='w-[20px]' src='/public/assets/Images/category/8.png' alt='icon' />
               <p className='poppins-regular text-[13px] text-[#474141] font-[500]'>Gemstone</p>
             </div>
-            <div className='w-[150px] flex items-center gap-2'>
+            <div className='w-[150px] flex items-center gap-2 select-none'>
               <img className='w-[20px]' src='/public/assets/Images/category/all.png' alt='icon' />
               <p className='poppins-regular text-[13px] text-[#474141] font-[500]'>All Jewelry</p>
             </div>
