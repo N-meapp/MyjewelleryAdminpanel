@@ -7,8 +7,8 @@ export default function ProductCard({ item }) {
     return (
         <>
             <div className="w-[302px] h-auto rounded-[10px] py-[11px] px-[12px] flex flex-col gap-[6px] border-[0.5px] border-[#C8983E]">
-                <div className="w-full h-[214px]">
-                    <img src={item.image}></img>
+                <div className="w-full h-[214px] overflow-hidden">
+                    <img className="transition-transform duration-500 ease-in-out hover:scale-110" src={item.image}></img>
                 </div>
                 <div className="w-full h-[88.37px] relative">
                     <h1 className="text-[16.85px] font-bold bolkit text-[#474141] truncate">{item?.name}</h1>

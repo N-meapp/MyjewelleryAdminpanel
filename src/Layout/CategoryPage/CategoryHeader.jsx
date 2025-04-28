@@ -15,18 +15,11 @@ export default function CategoryHeader() {
                     <div className="w-full h-full absolute top-0 bg-[linear-gradient(to_right,_#5B0100_0%,_#ffffff00_20%,_#ffffff00_70%,_#5B0100_100%)]"></div>
                 </div>
 
-
                 <div className="w-fit h-[243px] absolute top-[236px] flex gap-[23px] items-center">
-
-                    
                     <CategoryTab isSelected={false} image={'/assets/Images/category/women.png'} />
                     <CategoryTab isSelected={true} image={'/assets/Images/category/kid.png'} />
                     <CategoryTab isSelected={false} image={'/assets/Images/category/women.png'} />
-                    
-
                 </div>
-
-
             </div>
         </>
     )
