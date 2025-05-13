@@ -4,6 +4,7 @@ import Footer from "../../Layout/Footer/Footer";
 import Overview from "../../Layout/MyAccount/Overview";
 import Wishlist from "../../Layout/MyAccount/Wishlist";
 import DetailsNavbar from "../../Layout/ProductDetail/DetailsNavbar";
+import PersonalDetails from "../../Layout/MyAccount/PersonalDetails";
 
 
 const MyAccount = () => {
@@ -16,7 +17,11 @@ const MyAccount = () => {
             case 'dashboard':
                 return <div><Overview /></div>;
             case 'products':
+
                 return <div><Overview /></div>;
+
+                return <div><PersonalDetails /></div>;
+
             case 'costumers':
                 return <div><Overview /></div>;
             case 'orders':
@@ -116,6 +121,7 @@ const MyAccount = () => {
                                             }`}
                                     ></div>
                                 </li>
+
                                 <li
                                     onClick={() => setActiveTab("enquiry")}
                                     className={`flex items-center flex-col justify-center cursor-pointer gap-4 md:hover:bg-[#83665d] md:hover:text-[#ffffff] transition ease-in-out duration-300 p-2 rounded-xl poppins relative group ${activeTab === "enquiry"
@@ -129,6 +135,7 @@ const MyAccount = () => {
                                             }`}
                                     ></div>
                                 </li>
+
                             </ul>
                            
                         </nav>

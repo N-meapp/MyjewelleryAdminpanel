@@ -9,7 +9,9 @@ const Overview = () => {
                 <p className='bolkit md:text-[32px] text-[12px] md:mt-5 mt-2'>Account Overview</p>
             </div>
 
+
             <div className='md:mt-16 mt-[90px] pb-10'>
+
                 <div>
                     <p className='md:text-[17px] text-[15px] text-[#56433d] Poppins font-[550]'>Full Name</p>
                     <p className='md:text-[15px] text-[12px] text-[#949191] Poppins font-[500] mt-2'>Ahana.k</p>
