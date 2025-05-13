@@ -2,7 +2,7 @@
 import React, { useRef, useState } from 'react';
 import './CategoryList.css';
 
-const CategoryList = () => {
+const CategoryList = ({cateNav}) => {
 
     const scrollRef = useRef(null);
     const [isDragging, setIsDragging] = useState(false);
@@ -32,7 +32,7 @@ const CategoryList = () => {
 
 
     return (
-        <div className='w-full px-[100px] mt-[-20px]'>
+        <div className={cateNav} >
         <div
           className='overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing'
           ref={scrollRef}

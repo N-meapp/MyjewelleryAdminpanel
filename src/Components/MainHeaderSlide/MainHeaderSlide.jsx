@@ -24,7 +24,7 @@ const MainHeaderSlide = () => {
             >
                 {slides.map((src, index) => (
                     <div key={index} className="w-full flex-shrink-0">
-                        <img src={src} alt={`Slide ${index}`} className="w-full h-[70vh] rounded-[20px] object-cover roun" />
+                        <img src={src} alt={`Slide ${index}`} className="w-full h-[70vh] rounded-[20px] object-cover " />
                     </div>
                 ))}
             </div>

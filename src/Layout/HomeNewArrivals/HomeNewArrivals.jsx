@@ -38,15 +38,15 @@ export default function HomeNewArrivals() {
 
   return (
     <>
-    <div className='px-[100px] py-[150px]'>
-      <div className="mt-[43px] text-center lg:w-full w-full relative mb-[10px] overflow-hidden">
-        <h2 className="text-[30px] bolkit text-[#352727]">New Arrivals</h2>
-        <p className="text=[18px] text-[#8c8c8c] instrument-san">Shine bright, sparkle always, and wear your confidence</p>
+    <div className='md:px-[100px] px-[10px] md:py-[150px]'>
+      <div className="mt-[43px] text-center md:block flex lg:w-full w-full relative mb-[10px] overflow-hidden">
+        <h2 className="md:text-[30px] text-[20px] bolkit text-[#352727] whitespace-nowrap mt-3 md:mt-0 font-bold">New Arrivals</h2>
+        <p className="text=[18px] text-[#8c8c8c] instrument-san md:block hidden">Shine bright, sparkle always, and wear your confidence</p>
         <div className="absolute right-0">
           <SlidingButton handleScrolling={handleScrolling} />
         </div>
 
-        <div id="scrolling-div" className="mt-[70px] overflow-x-auto scrollbar-hidden">
+        <div id="scrolling-div" className="mt-[50px] overflow-x-auto scrollbar-hidden ml-[-105px] md:ml-[0px]">
           <div className="w-max flex gap-[21px]">
             {golds?.map((item, i) => {
               if (i < 7) {

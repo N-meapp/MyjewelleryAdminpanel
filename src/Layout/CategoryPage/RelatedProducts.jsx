@@ -37,14 +37,14 @@ export default function RelatedProducts() {
 
   return (
     <>
-      <div className="mt-[43px] text-center lg:w-[70%] w-[88%] mx-auto relative mb-[117px] overflow-hidden">
-        <h1 className="text-[25px] bolkit font-bold">Related Products</h1>
+      <div className="md:mt-[43px] mt-[-65px] text-center lg:w-[70%] w-[88%] mx-auto relative mb-[117px] overflow-hidden">
+        <h1 className="md:text-[25px] text-[20px] bolkit font-bold">Related Products</h1>
 
-        <div className="absolute right-0">
+        <div className="absolute right-0 md:block hidden">
           <SlidingButton handleScrolling={handleScrolling} />
         </div>
 
-        <div id="scrolling-div" className="mt-[70px] overflow-x-auto scrollbar-hidden">
+        <div id="scrolling-div" className="md:mt-[70px] mt-[10px] overflow-x-auto scrollbar-hidden">
           <div className="w-max flex gap-[21px]">
             {golds?.map((item, i) => {
               if (i < 4) {

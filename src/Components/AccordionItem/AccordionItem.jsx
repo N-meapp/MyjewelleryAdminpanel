@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
-const AccordionItem = ({ index, title, content, isOpen, toggle, icon }) => {
+const   AccordionItem = ({ index, title, content, isOpen, toggle, icon,mobileIcon }) => {
     const contentRef = useRef(null);
 
     useEffect(() => {
@@ -18,13 +18,17 @@ const AccordionItem = ({ index, title, content, isOpen, toggle, icon }) => {
     );
 
     return (
-        <div className="border-b border-slate-200">
+        <div className="border-b border-slate-200 ">
             <button
                 onClick={() => toggle(index)}
-                className="w-full flex justify-between items-center py-5 text-slate-800"
+                className="w-full flex justify-between items-center md:py-5 py-3 text-slate-800 "
             >
-                <span className="flex gap-5 poppins text-[#56433d] text-[16px]">
+                <span className="md:flex gap-5 poppins text-[#56433d] md:text-[16px] text-[12px] hidden ">
                     {icon}
+                    {title}
+                </span>
+                <span className="flex gap-5 poppins text-[#56433d] md:text-[16px] text-[12px] md:hidden">
+                    {mobileIcon}
                     {title}
                 </span>
                 <span className="text-slate-800 transition-transform duration-300">
@@ -33,14 +37,14 @@ const AccordionItem = ({ index, title, content, isOpen, toggle, icon }) => {
             </button>
             <div
                 ref={contentRef}
-                className="max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
-            >
-                <div className="grid grid-cols-12 gap-x-2 gap-y-16 px-[60px] py-[40px]">
+                className="max-h-0 overflow-hidden transition-all duration-300 ease-in-out flex-wrap "
+            >   
+                <div className="grid grid-cols-12 gap-x-2 md:gap-y-16 gap-y-6 md:px-[60px] md:py-[40px] px-[20px] py-[10px] ">
            
                         {content.map((item, i) => (
-                            <div key={i} className="col-span-12 md:col-span-4">
-                                <h4 className="text-[#56433d] bolkit text-[24px] font-[600]">{item.heading}</h4>
-                                <p className="text-[#b2b0b0] text-[16px] poppins font-[400]">{item.discription}</p>
+                            <div key={i} className="col-span-4 md:col-span-4">
+                                <h4 className="text-[#56433d] bolkit md:text-[24px] text-[15px] font-[600]">{item.heading}</h4>
+                                <p className="text-[#b2b0b0] md:text-[16px] text-[10px] poppins font-[400]">{item.discription}</p>
                             </div>
                         ))}
                     
