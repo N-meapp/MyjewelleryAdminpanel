@@ -1,9 +1,14 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Modal from '../../Components/Modal/Modal'
+import VirtualTryOn from '../../Components/AR3DModel/VirtualTryOn';
+import JewelryTryOn from '../../Components/AR3DModel/VirtualTryOn';
+import MindARComponent from '../../Components/AR3DModel/VirtualTryOn';
 
 const DetailHeader = () => {
     const [isModalOpen, setModalOpen] = useState(false);
     const [showTryItOn, setShowTryItOn] = useState(false);
+
+    const [isModalTryitOnOpen, setModalTryitOnOpen] = useState(false);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -75,7 +80,7 @@ const DetailHeader = () => {
 
                                         {/* Try it on Button */}
                                         <button
-                                            onClick={() => setShowTryItOn(true)}
+                                            onClick={() => setModalTryitOnOpen(true)}
                                             className={`absolute inset-0 w-full h-full bg-white border border-[#ccc4b8] text-[#56433d] text-[13px] font-[550] rounded-[10px] px-3 py-2 flex items-center justify-center hover:bg-gray-100 shadow transition-all duration-500 ease-in-out
                                         ${showTryItOn ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'}`}
                                         >
@@ -180,6 +185,8 @@ const DetailHeader = () => {
 
             <Modal
                 isOpen={isModalOpen}
+                mainModalClass={"relative p-4 w-full max-w-7xl max-h-full"}
+                modalWrapDiv={"fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-[calc(100%-1rem)] max-h-full overflow-y-auto overflow-x-hidden"}
                 onClose={() =>
                     setModalOpen(false)}
                 content={(
@@ -228,6 +235,22 @@ const DetailHeader = () => {
                                 ))}
                             </div>
                         </div>
+                    </div>
+                )}
+            />
+
+
+         {/* try it on virtual modal */}
+
+            <Modal
+                isOpen={isModalTryitOnOpen}
+                mainModalClass={"relative p-4 w-full max-w-7xl max-h-full"}
+                modalWrapDiv={"fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-[calc(100%-1rem)] max-h-full overflow-y-auto overflow-x-hidden"}
+                onClose={() =>
+                    setModalTryitOnOpen(false)}
+                content={(
+                    <div>
+                       <MindARComponent setModalTryitOnOpen={() => setModalTryitOnOpen(false)} />
                     </div>
                 )}
             />

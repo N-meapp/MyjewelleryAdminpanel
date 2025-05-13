@@ -8,7 +8,6 @@ const Overview = () => {
                   <ProfileView />
                 <p className='bolkit text-[32px] mt-5'>Account Overview</p>
             </div>
-
             <div className='mt-16 pb-10'>
                 <div>
                     <p className='text-[17px] text-[#56433d] Poppins font-[550]'>Full Name</p>

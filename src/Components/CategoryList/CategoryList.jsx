@@ -1,87 +1,85 @@
-
-import React, { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './CategoryList.css';
+import { navCategory } from '../../constants/category';
+import MegaDropdown from '../MegaDropdown/MegaDropdown';
+import { categorySubData } from '../../constants/category';
 
 const CategoryList = () => {
-
-    const scrollRef = useRef(null);
-    const [isDragging, setIsDragging] = useState(false);
-    const [startX, setStartX] = useState(0);
-    const [scrollLeft, setScrollLeft] = useState(0);
-  
-    const handleMouseDown = (e) => {
-      setIsDragging(true);
-      setStartX(e.pageX - scrollRef.current.offsetLeft);
-      setScrollLeft(scrollRef.current.scrollLeft);
-    };
-  
-    const handleMouseUp = () => {
-      setIsDragging(false);
-    };
-  
-    const handleMouseLeave = () => {
-      setIsDragging(false);
-    };
-  
-    const handleMouseMove = (e) => {
-      if (!isDragging) return;
-      const x = e.pageX - scrollRef.current.offsetLeft;
-      const walk = (x - startX) * 1.5;
-      scrollRef.current.scrollLeft = scrollLeft - walk;
-    };
+  const scrollRef = useRef(null);
+  const [categoryData, setCategoryData] = useState([]);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
 
-    return (
-        <div className='w-full px-[100px] mt-[-20px]'>
-        <div
-          className='overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing'
-          ref={scrollRef}
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseLeave}
-          onMouseMove={handleMouseMove}
-        >
-          <div className='flex gap-3 min-w-max w-[500px]'>
-            <div className='w-[150px] flex items-center gap-2 select-none'>
-              <img className='w-[20px]' src='/public/assets/Images/category/all.png' alt='icon' />
-              <p className='poppins-regular text-[13px] text-[#474141] font-[500]'>All Jewelry</p>
-            </div>
-            <div className='w-[150px] flex items-center gap-2 select-none'>
-              <img className='w-[20px]' src='/public/assets/Images/category/2.png' alt='icon' />
-              <p className='poppins-regular text-[13px] text-[#474141] font-[500]'>Gold</p>
-            </div>
-            <div className='w-[150px] flex items-center gap-2 select-none'>
-              <img className='w-[20px]' src='/public/assets/Images/category/3.png' alt='icon' />
-              <p className='poppins-regular text-[13px] text-[#474141] font-[500]'>Diamond</p>
-            </div>
-            <div className='w-[150px] flex items-center gap-2 select-none'>
-              <img className='w-[20px]' src='/public/assets/Images/category/4.png' alt='icon' />
-              <p className='poppins-regular text-[13px] text-[#474141] font-[500]'>Silver</p>
-            </div>
-            <div className='w-[150px] flex items-center gap-2 select-none'>
-              <img className='w-[20px]' src='/public/assets/Images/category/5.png' alt='icon' />
-              <p className='poppins-regular text-[13px] text-[#474141] font-[500]'>Wedding</p>
-            </div>
-            <div className='w-[150px] flex items-center gap-2 select-none'>
-              <img className='w-[20px]' src='/public/assets/Images/category/6.png' alt='icon' />
-              <p className='poppins-regular text-[13px] text-[#474141] font-[500]'>Handcrafted</p>
-            </div>
-            <div className='w-[150px] flex items-center gap-2 select-none'>
-              <img className='w-[20px]' src='/public/assets/Images/category/7.png' alt='icon' />
-              <p className='poppins-regular text-[13px] text-[#474141] font-[500]'>Daily Wear</p>
-            </div>
-            <div className='w-[150px] flex items-center gap-2 select-none'>
-              <img className='w-[20px]' src='/public/assets/Images/category/8.png' alt='icon' />
-              <p className='poppins-regular text-[13px] text-[#474141] font-[500]'>Gemstone</p>
-            </div>
-            <div className='w-[150px] flex items-center gap-2 select-none'>
-              <img className='w-[20px]' src='/public/assets/Images/category/all.png' alt='icon' />
-              <p className='poppins-regular text-[13px] text-[#474141] font-[500]'>All Jewelry</p>
-            </div>
+  useEffect(() => {
+    setCategoryData(navCategory);
+  }, []);
+
+  const slideLeft = () => {
+    scrollRef.current.scrollBy({
+      left: -250,
+      behavior: 'smooth',
+    });
+  };
+
+  const slideRight = () => {
+    scrollRef.current.scrollBy({
+      left: 250,
+      behavior: 'smooth',
+    });
+  };
+
+  return (
+    <div className="w-full px-[100px] mt-[-20px] relative">
+      <div className="flex items-center justify-between mb-4">
+        <button onClick={slideLeft} className="bg-transparent p-1 rounded-full transition-all">
+          <svg xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" viewBox="0 0 48 48">
+            <path fill="none" stroke="#56433d" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M31 36L19 24l12-12" />
+          </svg>
+        </button>
+        {/* overflow-x-auto */}
+        <div className="overflow-x-auto scrollbar-hide" ref={scrollRef} style={{ scrollBehavior: 'smooth' }}>
+          {/* relative */}
+          <div className="flex gap-3 min-w-max w-[500px] ">
+            {categoryData.map((item, index) => {
+              const matchedSubData = categorySubData.find((data) => data.title === item.title);
+
+              return (
+                <div
+                  key={item.title + index} // Ensure unique key
+                  // relative
+                  className=" w-[150px]  select-none cursor-pointer"
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
+                  <div className='flex items-center justify-center gap-2'>
+                    <img className="w-[20px]" src={item.image} alt="icon" />
+                    <p className={`poppins-regular text-[13px] font-[500] ${hoveredIndex === index ? "text-[#804848]" : "text-[#474141]"}`}
+                    >
+                      {item.title}
+                    </p>
+                  </ div>
+
+                  {hoveredIndex === index ? <div className='flex justify-center px-3'> <hr className='border w-full border-[#804848] mt-1' /> </div> : <span></span>}
+
+                  {hoveredIndex === index && matchedSubData && (
+                    <div className="absolute top-full mt-[-6px] left-0 z-999">
+                      <MegaDropdown data={matchedSubData} />
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
-      </div>
-    )
-}
 
-export default CategoryList
+        <button onClick={slideRight} className="bg-transparent p-1 mr-2 rounded-full transition-all">
+          <svg xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" viewBox="0 0 48 48">
+            <path fill="none" stroke="#56433d" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="m19 12l12 12l-12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default CategoryList;

@@ -3,6 +3,7 @@ import Navbar from "../../Layout/Navbar/Navbar";
 import Footer from "../../Layout/Footer/Footer";
 import Overview from "../../Layout/MyAccount/Overview";
 import Wishlist from "../../Layout/MyAccount/Wishlist";
+import PersonalDetails from "../../Layout/MyAccount/PersonalDetails";
 
 
 const MyAccount = () => {
@@ -15,7 +16,7 @@ const MyAccount = () => {
             case 'dashboard':
                 return <div><Overview /></div>;
             case 'products':
-                return <div>fqegfeqg</div>;
+                return <div><PersonalDetails /></div>;
             case 'costumers':
                 return <div>aaa</div>;
             case 'orders':
@@ -70,10 +71,7 @@ const MyAccount = () => {
                                     }`}>
                                     <span className={isSidebarOpen ? "block" : "hidden"}>Order history</span>
                                 </li>
-                                <li onClick={() => setActiveTab('enquiry')} className={`flex items-center flex-col  justify-center cursor-pointer gap-4 hover:bg-[#83665d] hover:text-[#ffffff] transition ease-in-out duration-300 p-2 rounded-xl poppins ${activeTab === 'enquiry' ? 'text-[#fff] border-indigo-500 shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] bg-[#56433d] rounded-xl' : 'text-[#474141]'
-                                    }`}>
-                                    <span className={isSidebarOpen ? "block" : "hidden"}>Edit details</span>
-                                </li>
+    
                             </ul>
                         </nav>
 

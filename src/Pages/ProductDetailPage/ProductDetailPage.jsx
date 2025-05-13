@@ -5,6 +5,7 @@ import RelatedProducts from '../../Layout/CategoryPage/RelatedProducts'
 import DetailHeader from '../../Layout/ProductDetail/DetailHeader'
 import ProductDetails from '../../Layout/ProductDetail/ProductDetails'
 import PriceBreakup from '../../Layout/ProductDetail/PriceBreakup'
+import JewelryTryOn from '../../Components/AR3DModel/VirtualTryOn'
 
 const ProductDetailPage = () => {
   return (
@@ -15,7 +16,6 @@ const ProductDetailPage = () => {
         <PriceBreakup />
         <RelatedProducts />
         <Footer />
-
     </div>
   )
 }
