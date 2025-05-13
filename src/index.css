@@ -65,3 +65,23 @@
     font-optical-sizing: auto;
     font-style: normal;
   }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .metamorphous-regular {
+    font-family: "Metamorphous", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  /* @theme {
+    --breakpoint-md: 30rem;
+    
+  } */

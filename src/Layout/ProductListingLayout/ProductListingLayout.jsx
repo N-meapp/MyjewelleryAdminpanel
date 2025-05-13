@@ -54,13 +54,16 @@ const ProductListingLayout = ({ list }) => {
 
 
   return (
-    <div className="transition-all duration-500 ease-in-out">
+
+    <div className="transition-all duration-500 ease-in-out mb-[50px] md:mb-0 justify-center grid">
+
       {!filter && (
         <button
           onClick={() => setFilter(true)}
           type="button"
-          className="bg-[#fafafa] border border-none focus:outline-none hover:bg-[#eeeeee] font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ml-4 mt-2 transition-all duration-300"
-        >
+
+          className="bg-[#fafafa] border border-none focus:outline-none hover:bg-[#eeeeee] font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ml-4 mt-2 transition-all duration-300 "
+
           <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 24 24">
             <path
               fill="none"
@@ -74,11 +77,12 @@ const ProductListingLayout = ({ list }) => {
         </button>
       )}
 
-      <div className="grid grid-cols-12 gap-1 w-full transition-all duration-500 ease-in-out">
+      <div className="grid md:grid-cols-12 grid-cols-2 justify-center gap-1 w-full transition-all duration-500 ease-in-out  ">
         {/* Left Sidebar */}
         {filter && (
           <div
-            className={`col-span-12 md:col-span-3 px-4 pt-1 border-r-2 border-[#e0dbdb] transform transition-all duration-500 ease-in-out ${filter ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
+            className={`col-span-12 md:col-span-3 px-4 pt-1 border-r-2 border-[#e0dbdb] transform transition-all duration-500 ease-in-out md:block hidden ${filter ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
+
               }`}
           >
             <div>
@@ -257,21 +261,29 @@ const ProductListingLayout = ({ list }) => {
 
         {/* Right Content Area */}
         <div
-          className={`transition-all duration-500 ease-in-out ${filter
-              ? 'col-span-6 md:col-span-9 px-[40px] py-[40px]'
-              : 'col-span-12 md:col-span-12 px-[40px] py-[40px]'
+
+          className={`transition-all duration-500 ease-in-out   ${filter
+              ? 'col-span-6 md:col-span-9 px-[10px] md:px-[40px] py-[20px] md:py-[40px]'
+              : 'col-span-12 px-[10px] md:px-[40px] py-[20px] md:py-[40px]'
+
             }`}
         >
           <div>
             <p
-              className={`text-[20px] text-[#46322c] alice transition-all duration-500 ${filter ? '' : 'px-[80px]'
+
+              className={`text-[20px] text-[#46322c] alice transition-all duration-500 hidden md:block ${filter ? '' : 'md:px-[80px]'
+
                 }`}
             >
               Chains
             </p>
 
             <div
-              className={`h-full mt-[20px] grid gap-[14px] transition-all duration-500 ${filter ? 'grid-cols-3 w-fit' : 'grid-cols-4 w-full px-[80px]'
+
+              className={`grid gap-[15px] md:gap-[14px]  transition-all duration-500 mt-[25px] md:mt-[20px]  ${filter
+                  ? 'grid-cols-2  md:grid-cols-3 '
+                  : 'grid-cols-2 md:grid-cols-4 md:px-[80px]'
+
                 }`}
             >
               {list.map((item) => (
@@ -280,6 +292,7 @@ const ProductListingLayout = ({ list }) => {
             </div>
           </div>
         </div>
+
       </div>
     </div>
 

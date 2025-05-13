@@ -1,19 +1,35 @@
-export default function CategoryAboutSection({details}){
-    console.log(details);
-    
-    return(
-        <>
-        <div className="h-[536px] w-[59%] mx-auto mt-[131px] px-[66px] py-[28px] flex gap-[24px]">
-                <div className="h-full w-full mx-auto content-center">
-                    <div className="h-auto w-full">
-                        <h1 className="text-[30px] bolkit h-[46px] font-bold">{details.heading}</h1>
-                        <h1 className="text-[15px] text-[#6F6565] poppins">{details.description}</h1>
-                        <button className="bg-[#C5A984] w-[153px] h-[43px] rounded-lg text-[15px] mt-[24px] font-semibold text-[#000000] poppins">Explore</button>
+import { useEffect, useState } from "react";
+import { womensCategory, mensCategory, kidsCategory } from "../../constants/category";
 
-                    </div>
+export default function CategoryAboutSection({ selectedCategory }) {
+    // console.log(selectedCategory,'selectedCategories');
+    const [categoryData, setCategoryData] = useState(womensCategory)
+    useEffect(() => {
+        if (selectedCategory === 'Womens') {
+            setCategoryData(womensCategory)
+        } else if (selectedCategory === 'Mens') {
+            setCategoryData(mensCategory)
+        } else if (selectedCategory === 'Kids') {
+            setCategoryData(kidsCategory)
+        }
+    }, [selectedCategory])
+    return (
+        <>
+            <div className="flex items-center justify-center mx-auto mt-[-100px] md:mt-[131px] h-[536px] w-[80%] md:w-[59%] gap-[16px] md:gap-[24px]">
+                <div className="flex-1 content-center">
+                    <h1 className="text-[12px] md:text-[30px] font-bold h-[46px] bolkit">{categoryData.heading}</h1>
+                    <h2 className="md:text-[15px] text-[7px] text-[#6F6565] poppins mt-[-25px] md:mt-0">{categoryData.description}</h2>
+                    <button className="bg-[#C5A984] md:w-[153px] w-[64px] md:h-[43px] h-[18px] md:rounded-lg rounded-[3px] md:text-[15px] text-[6px] md:mt-[24px] font-semibold text-black poppins">
+                        Explore
+                    </button>
                 </div>
-                <img className="w-auto h-auto" src={details.video}></img>
+                <img
+                    className="md:h-auto md:max-h-[700px] max-h-[300px] md:w-auto w-[113px] h-[201px] md:rounded-[4px]"
+                    src={categoryData.video}
+                    alt="category preview"
+                />
             </div>
+
         </>
     )
 }

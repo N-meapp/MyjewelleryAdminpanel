@@ -3,14 +3,14 @@ import CategoryTab from '../../Components/Tabs/CategoryTab'
 
 const HomeCategory = () => {
   return (
-    <div className=''>
-        <div className='px-[100px] pb-[100px] pt-[20px]'>
-        <h2 className="text-[24px] bolkit text-[#352727] text-center">Shop by category</h2>
+    <div className='w-full'>
+        <div className='md:px-[100px] pb-[100px] mt-[70px]'>
+        <h2 className="md:text-[24px] text-[22px] bolkit text-[#352727] text-center">Shop by category</h2>
 
-        <div className='flex gap-6 justify-center items-center mt-[50px]'>
-           <div > <CategoryTab heading="Women" image={'/assets/Images/category/women.png'} /></div>
-           <div > <CategoryTab heading="Men" image={'/assets/Images/category/men.png'} /></div>
-           <div ><CategoryTab heading="Kids" image={'/assets/Images/category/kid.png'} /></div>
+        <div className='flex md:gap-6 gap-2 justify-center items-center md:mt-[50px] px-2 mt-[15px] '>
+           <CategoryTab homeCate={'w-[158px] h-[149px] '} heading="Women" image={'/assets/Images/category/women.png'} />  
+           <CategoryTab homeCate={'w-[158px] h-[149px]'} heading="Men" image={'/assets/Images/category/men.png'} />  
+          <CategoryTab  homeCate={'w-[158px] h-[149px]'} heading="Kids" image={'/assets/Images/category/kid.png'} />  
         </div>
         </div>
     </div>

@@ -52,23 +52,25 @@ const DetailHeader = () => {
     const handleMouseLeave = () => setShowGlass(false);
     return (
         <>
-            <div className='w-full px-[100px] py-[50px]'>
+            <div className='w-full px-4 sm:px-6 md:px-[100px]  py-6 md:py-[50px] '>
 
-                <div className='bg-[#ffffff] rounded-[16px] px-[55px] py-[30px] ' style={{ 'box-shadow': '4px 0px 50px 0px rgba(0, 0, 0, 0.1)' }}>
-                    <div className='grid grid-cols-12 gap-1 w-full'>
-                        <div className='col-span-12 md:col-span-4 '>
-                            <div className='border-2 border-[#ccc4b8] rounded-[20px] relative'>
-                                <img className='w-full h-[330px] object-cover rounded-[20px]' src='/public/assets/Images/ProductDetails/pr1.png' />
+                {/* <div className='bg-[#ffffff] md:rounded-[16px] rounded-[20px] md:px-[55px] md:py-[30px] ' style={{ 'box-shadow': '4px 0px 50px 0px rgba(0, 0, 0, 0.1)' }}> */}
+                <div className="bg-[#ffffff] md:rounded-[16px] rounded-[20px] px-[10px] md:px-[55px] md:py-[30px] md:shadow-xl">
+
+                    <div className='grid grid-cols-12 gap-1  '>
+                        <div className='col-span-12 md:col-span-4'>
+                            <div className='border-2 border-[#ccc4b8] rounded-[20px] relative  flex justify-center'>
+                                <img className='md:w-full md:h-[330px]   w-[358px] h-[325px]  object-cover rounded-[20px] ' src='/public/assets/Images/ProductDetails/pr1.png' />
                                 <div className="absolute bottom-2 right-2 z-50">
 
-                                    <div className="relative w-[140px] h-[42px]">
+                                    <div className="relative md:w-[140px] md:h-[42px] w-[128px] h-[34px] ">
                                         {/* View Similar Button */}
                                         <button
                                             onClick={() => {
                                                 setModalOpen(true);
                                                 setShowTryItOn(false);
                                             }}
-                                            className={`absolute inset-0 w-full h-full bg-white border border-[#ccc4b8] text-[#56433d] text-[13px] font-[550] rounded-[10px] px-3 py-2 flex items-center justify-center hover:bg-gray-100 shadow transition-all duration-500 ease-in-out
+                                            className={`absolute  inset-0 w-full h-full  bg-white border border-[#ccc4b8] text-[#56433d] text-[13px] font-[550] rounded-[10px] px-3 py-2 flex items-center justify-center hover:bg-gray-100 shadow transition-all duration-500 ease-in-out
                                            ${!showTryItOn ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}
 
                                         >
@@ -80,8 +82,10 @@ const DetailHeader = () => {
 
                                         {/* Try it on Button */}
                                         <button
-                                            onClick={() => setModalTryitOnOpen(true)}
-                                            className={`absolute inset-0 w-full h-full bg-white border border-[#ccc4b8] text-[#56433d] text-[13px] font-[550] rounded-[10px] px-3 py-2 flex items-center justify-center hover:bg-gray-100 shadow transition-all duration-500 ease-in-out
+
+                                            onClick={() => setShowTryItOn(true)}
+                                            className={`absolute inset-0 md:w-full md:h-full  w-[128px] h-[33px] bg-white border border-[#ccc4b8] text-[#56433d] text-[13px] font-[550] rounded-[10px] px-3 py-2 flex items-center justify-center hover:bg-gray-100 shadow transition-all duration-500 ease-in-out
+
                                         ${showTryItOn ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'}`}
                                         >
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 24 24">
@@ -137,44 +141,48 @@ const DetailHeader = () => {
                             </button> */}
                             </div>
                         </div>
-                        <div className='col-span-12 md:col-span-8 px-[30px] py-[40px] relative'>
+                        <div className='col-span-12 md:col-span-8 md:px-[30px] py-[10px] md:py-[40px] md:relative'>
 
                             <div className=''>
-                                <p className='text-[32px] text-[#474141] alice'>Luxuriant Diamond Pendant</p>
-                                <svg className=' absolute top-2 right-2 cursor-pointer' xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"><path fill="#474141" fill-rule="evenodd" d="M14.25 5.5a3.25 3.25 0 1 1 .833 2.173l-2.717 1.482l-3.04 1.737a3.25 3.25 0 0 1 .31 2.464l5.447 2.971a3.25 3.25 0 1 1-.719 1.316l-5.447-2.97a3.25 3.25 0 1 1-.652-4.902l3.37-1.926l2.729-1.489a3.3 3.3 0 0 1-.114-.856m3.25-1.75a1.75 1.75 0 1 0 0 3.5a1.75 1.75 0 0 0 0-3.5m-11 7a1.75 1.75 0 1 0 0 3.5a1.75 1.75 0 0 0 0-3.5m9.25 7.75a1.75 1.75 0 1 1 3.5 0a1.75 1.75 0 0 1-3.5 0" clip-rule="evenodd" /></svg>
-                                <div className='flex gap-2'>
+                                <p className='md:text-[32px] text-[18px] text-[#474141] alice'>Luxuriant Diamond Pendant</p>
+                                <svg className=' absolute top-2 right-2 cursor-pointer md:block hidden' xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"><path fill="#474141" fill-rule="evenodd" d="M14.25 5.5a3.25 3.25 0 1 1 .833 2.173l-2.717 1.482l-3.04 1.737a3.25 3.25 0 0 1 .31 2.464l5.447 2.971a3.25 3.25 0 1 1-.719 1.316l-5.447-2.97a3.25 3.25 0 1 1-.652-4.902l3.37-1.926l2.729-1.489a3.3 3.3 0 0 1-.114-.856m3.25-1.75a1.75 1.75 0 1 0 0 3.5a1.75 1.75 0 0 0 0-3.5m-11 7a1.75 1.75 0 1 0 0 3.5a1.75 1.75 0 0 0 0-3.5m9.25 7.75a1.75 1.75 0 1 1 3.5 0a1.75 1.75 0 0 1-3.5 0" clip-rule="evenodd" /></svg>
+                                <div className='flex gap-2 md:mt-0 mt-[50px] md:justify-start justify-center'>
                                     <div className='flex'>
-                                        <img className='w-[40px] h-[40px]' src="/public/assets/Images/ProductDetails/gold.gif" alt="Computer man" />
-                                        <p className='text-[16px] text-[#474141] poppins mt-2'>18 Karat</p>
+                                        <img className='md:w-[40px] md:h-[40px] w-[26px] h-[26px]' src="/public/assets/Images/ProductDetails/gold.gif" alt="Computer man" />
+                                        <p className='md:text-[16px] font-semibold text-[13px] text-[#474141] poppins md:mt-2 mt-1'>18 Karat</p>
                                     </div>
                                     <div className='flex'>
-                                        <img className='w-[40px] h-[40px]' src="/public/assets/Images/ProductDetails/diamond.gif" alt="Computer man" />
-                                        <p className='text-[16px] text-[#474141] poppins mt-2'>0.226 ct</p>
+                                        <img className='md:w-[40px] md:h-[40px] w-[26px] h-[26px]' src="/public/assets/Images/ProductDetails/diamond.gif" alt="Computer man" />
+                                        <p className='md:text-[16px] font-semibold text-[13px] text-[#474141] poppins md:mt-2 mt-1'>0.226 ct</p>
                                     </div>
                                 </div>
-                                <div className='flex gap-2 mt-2'>
-                                    <svg className='mt-2' xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 32 32"><path fill="#474141" d="M5 4a1 1 0 0 0 0 2h1.557l-3.491 9.143A1 1 0 0 0 3 15.5C3 18.077 4.923 20 7.5 20s4.5-1.923 4.5-4.5a1 1 0 0 0-.066-.357L8.445 6H15v16H9a3 3 0 1 0 0 6h14a3 3 0 0 0 0-6h-6V6h6.434l-3.372 9.154A1 1 0 0 0 20 15.5c0 2.577 1.923 4.5 4.5 4.5s4.5-1.923 4.5-4.5a1 1 0 0 0-.062-.346L25.566 6H27a1 1 0 1 0 0-2zm2.5 5.137L9.548 14.5H5.452zM22.434 14.5L24.5 8.893l2.066 5.607z" /></svg>
-                                    <p className='popinse font-[300] text-[#474141] text-[16px]'>weight: &nbsp; <span className='font-[600] text-[19px]'>0.902 g</span> </p>
+                                <div className='flex md:gap-2 gap-1 md:mt-2 mt-[-70px]'>
+                                    <svg className='md:mt-2' xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 32 32"><path fill="#474141" d="M5 4a1 1 0 0 0 0 2h1.557l-3.491 9.143A1 1 0 0 0 3 15.5C3 18.077 4.923 20 7.5 20s4.5-1.923 4.5-4.5a1 1 0 0 0-.066-.357L8.445 6H15v16H9a3 3 0 1 0 0 6h14a3 3 0 0 0 0-6h-6V6h6.434l-3.372 9.154A1 1 0 0 0 20 15.5c0 2.577 1.923 4.5 4.5 4.5s4.5-1.923 4.5-4.5a1 1 0 0 0-.062-.346L25.566 6H27a1 1 0 1 0 0-2zm2.5 5.137L9.548 14.5H5.452zM22.434 14.5L24.5 8.893l2.066 5.607z" /></svg>
+                                    <p className='poppins md:font-[300] text-[#474141] md:text-[16px] text-[10px]'>weight: &nbsp; <span className='font-[600] md:text-[19px] text-[10px] poppins'>0.902 g</span> </p>
                                 </div>
 
 
 
-                                <div className='flex justify-between w-full mt-[100px]'>
+                                <div className='flex flex-wrap justify-between w-full md:mt-[100px] mt-[70px]'>
                                     <div>
                                         <div className='flex gap-2'>
-                                            <p className='inter text-[32px] font-[600] text-[#474141]'>₹41326.00</p>
-                                            <span className='mt-3 cursor-pointer'><svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 15 15"><path fill="none" stroke="#474141" stroke-linecap="square" d="m14 5l-6.5 7L1 5" stroke-width="1" /></svg></span>
+                                            <p className='inter md:text-[32px] text-[22px] font-[600] text-[#474141]'>₹41326</p>
+                                            <span className='md:mt-3 mt-2 cursor-pointer'><svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 15 15"><path fill="none" stroke="#474141" stroke-linecap="square" d="m14 5l-6.5 7L1 5" stroke-width="1" /></svg></span>
                                         </div>
 
-                                        <p className='inter text-[12px] text-[#a29f9f]'>Incl. taxes and charges </p>
+                                        <p className='inter md:text-[12px] text-[9px] text-[#a29f9f]'>Incl. taxes and charges </p>
                                     </div>
-                                    <div>
-                                        <button type="button" class="text-white flex gap-2 bg-[#56433d] hover:bg-[#795f57] font-medium rounded-lg text-sm px-24 py-2.5 me-2 mb-2">
-                                            <img className='w-[20px] h-[20px]' src='/public/assets/Images/ProductDetails/w1.png' />
+                                    <div  >
+                                        <button type="button" class="text-white flex  md:gap-2 gap-2  bg-[#56433D] hover:bg-[#795f57] poppins font-medium md:rounded-lg rounded-[10px] text-[14px]  md:px-24 px-[60px] py-2.5 md:py-2.5 md:me-2 mb-2">
+                                            <img className='md:w-[20px] md:h-[20px] w-[15px] h-[15px] md:mt-0 mt-1' src='/public/assets/Images/ProductDetails/w1.png' />
                                             Enquire
                                         </button>
                                     </div>
                                 </div>
+                                {/* <div className='mt-5 md:hidden block instrument-san text-[13px] '>
+                                    <p className='text-[#636060] text-[14px]'>About</p>
+                                    <p className='text-[#474141B2] text-[14px] mt-2'> Shop these sparkling collection of Gold Plated Royal Floral Carved Ear Cuff by SUHANI PITTIE online at Aza Fashions.Perfect for life's most memorable moments or as a cherished everyday treasure, its design captures both classic charm and modern luxury.</p>
+                                </div> */}
 
                             </div>
 
@@ -191,20 +199,20 @@ const DetailHeader = () => {
                     setModalOpen(false)}
                 content={(
                     <div>
-                        <div className="flex flex-col items-center gap-4 py-7">
+                        <div className="flex flex-col items-center gap-2 md:gap-4 py-3 md:py-7 w-full">
                             <div
-                                className="relative w-[400px] h-[350px] object-cover overflow-hidden border border-[#ccc4b8] rounded-[20px]"
+                                className="relative w-full md:w-[400px] h-[250px] md:h-[350px] object-cover overflow-hidden border border-[#ccc4b8] rounded-[20px]"
                                 onMouseMove={handleMouseMove}
                                 onMouseLeave={handleMouseLeave}
                             >
                                 <img
                                     ref={imgRef}
-                                    src={images[currentIndex]}
+                                    src={images[currentIndex] || "/placeholder.svg"}
                                     className="w-full h-full object-cover select-none pointer-events-none"
-                                    alt="Zoomable"
+                                    alt="Zoomable product"
                                 />
 
-                                {showGlass && (
+                                {showGlass && imgRef.current && (
                                     <div
                                         className="absolute pointer-events-none rounded-full border-2 border-white shadow-md"
                                         style={{
@@ -222,13 +230,13 @@ const DetailHeader = () => {
                                 )}
                             </div>
 
-                            <div className="flex gap-3 mt-5">
+                            <div className="flex flex-wrap justify-center gap-2 md:gap-3 mt-3 md:mt-5 px-2">
                                 {images.map((src, index) => (
                                     <img
                                         key={index}
-                                        src={src}
-                                        alt={`thumb-${index}`}
-                                        className={`w-28 h-24 object-cover cursor-pointer border rounded-[10px] ${index === currentIndex ? "border-[#5f3f36] border-2" : "border-gray-300"
+                                        src={src || "/placeholder.svg"}
+                                        alt={`thumbnail-${index}`}
+                                        className={`w-14 h-12 md:w-28 md:h-24 object-cover cursor-pointer border rounded-[10px] ${index === currentIndex ? "border-[#5f3f36] border-2" : "border-gray-300"
                                             }`}
                                         onClick={() => setCurrentIndex(index)}
                                     />

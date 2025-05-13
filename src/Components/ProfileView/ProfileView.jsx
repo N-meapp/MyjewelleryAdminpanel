@@ -5,6 +5,7 @@ const ProfileView = () => {
     const [isModalOpen, setModalOpen] = useState(false);
     return (
         <>
+
             <div className=' relative cursor-pointer'>
                 <img className='rounded-full w-[206px] h-[206px]' src='/public/assets/Images/MyAccount/profile.png' />
                 <span onClick={() => setModalOpen(true)} className='rounded-full w-[33px] h-[33px] bg-[#fff] shadow-md absolute right-[18px] bottom-3 flex justify-center items-center'>
@@ -13,6 +14,7 @@ const ProfileView = () => {
             </div>
             <p className='text-[24px] text-[#000] poppins font-[600] mt-3'>Name : Ahana.K</p>
             <p className='text-[15px] text-[#000] poppins'>Ms</p>
+
             <div className='flex gap-1'>
                 <img className='w-[20px] h-[20px]' src='/public/assets/Images/MyAccount/flag.png' />
                 <p className='text-[15px] poppins'>India</p>

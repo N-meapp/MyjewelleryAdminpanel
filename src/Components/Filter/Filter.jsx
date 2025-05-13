@@ -19,7 +19,9 @@ const Filter = () => {
         ];
     
         const [filter, setFilter] = useState(true)
+
         console.log(filter, "yyyy");
+
     
     
         const handleMinChange = (e) => {

@@ -9,21 +9,23 @@ import HomeCategory from '../../Layout/HomeCategory/HomeCategory';
 import HomeClassicCollection from '../../Layout/HomeClassicCollection/HomeClassicCollection';
 import HomeEnquire from '../../Layout/HomeEnquire/HomeEnquire';
 import Footer from '../../Layout/Footer/Footer';
+import TopCategories from '../../Layout/HomeExplore/TopCategories';
 
 
 const Home = () => {
   return (
-    <div>
-      <Navbar />
+    <>
+      <Navbar/>
       <MainHeader />
       <HomeExplore />
+      <TopCategories/>
       <HomeFeuture />
       <HomeNewArrivals />
       <HomeCategory />
       <HomeClassicCollection />
       <HomeEnquire />
       <Footer />
-    </div>
+    </>
   )
 }
 

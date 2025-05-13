@@ -27,3 +27,5 @@ input[type="range"].range-thumb::-webkit-slider-thumb {
   input[type="number"] {
     -moz-appearance: textfield;
   }
+
+  

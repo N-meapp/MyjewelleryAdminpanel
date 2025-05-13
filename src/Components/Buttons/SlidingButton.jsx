@@ -3,7 +3,7 @@ export default function SlidingButton({handleScrolling}) {
       <div className="w-fit flex gap-[15px] items-center">
         <div onClick={()=>{
             handleScrolling('left')
-        }} className="w-[51px] h-[51px] rounded-full border-[1px] border-[#BDAE91] content-center justify-items-center cursor-pointer select-none">
+        }} className="md:w-[51px] md:h-[51px] mt-4 md:mt-0 rounded-full border-[1px] border-[#BDAE91] content-center justify-items-center cursor-pointer select-none">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -17,7 +17,7 @@ export default function SlidingButton({handleScrolling}) {
         </div>
         <div onClick={()=>{
             handleScrolling('right')
-        }} className="w-[51px] h-[51px] rounded-full border-[1px] border-[#BDAE91] content-center justify-items-center cursor-pointer select-none">
+        }} className="md:w-[51px] md:h-[51px] mt-4 md:mt-0 rounded-full border-[1px] border-[#BDAE91] content-center justify-items-center cursor-pointer select-none">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"

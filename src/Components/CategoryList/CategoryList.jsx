@@ -4,7 +4,9 @@ import { navCategory } from '../../constants/category';
 import MegaDropdown from '../MegaDropdown/MegaDropdown';
 import { categorySubData } from '../../constants/category';
 
-const CategoryList = () => {
+
+const CategoryList = ({cateNav}) => {
+
   const scrollRef = useRef(null);
   const [categoryData, setCategoryData] = useState([]);
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -20,6 +22,7 @@ const CategoryList = () => {
       behavior: 'smooth',
     });
   };
+
 
   const slideRight = () => {
     scrollRef.current.scrollBy({
@@ -42,6 +45,7 @@ const CategoryList = () => {
           <div className="flex gap-3 min-w-max w-[500px] ">
             {categoryData.map((item, index) => {
               const matchedSubData = categorySubData.find((data) => data.title === item.title);
+
 
               return (
                 <div
@@ -69,6 +73,7 @@ const CategoryList = () => {
                 </div>
               );
             })}
+
           </div>
         </div>
 
