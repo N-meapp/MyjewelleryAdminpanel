@@ -7,16 +7,16 @@ import { wishlistData } from '../../constants/wishlist'
 const Wishlist = () => {
   return (
     <div className=''>
-      <div className='flex flex-col items-center '>
+      <div className='flex flex-col items-center md:mt-[-20px] mt-[-75px] '>
         <ProfileView />
-        <p className='bolkit text-[32px] mt-5'>Wish List</p>
+        <p className='bolkit md:text-[32px] text-[15px] md:mt-5 mt-2'>Wish List</p>
       </div>
 
       <div className='mt-16 pb-10'>
 
-        <p className='poppins text-center text-[#6b6b6b] text-[16px]'>our wishlist is your personal collection of stunning jewelry pieces you love. Save your favorite designs, compare styles, and easily revisit them anytime.</p>
+        <p className='poppins text-center text-[#6b6b6b] text-[16px] md:block hidden'>our wishlist is your personal collection of stunning jewelry pieces you love. Save your favorite designs, compare styles, and easily revisit them anytime.</p>
 
-        <div className="grid grid-cols-12 w-full mt-[80px] bg-[#f7f7f7] py-5">
+        <div className=" grid-cols-12 w-full mt-[80px] bg-[#f7f7f7] py-5 md:grid hidden">
           <div className='col-span-12 md:col-span-3'></div>
           <div className='col-span-12 md:col-span-5 '>
             <p className='poppins text-[#000] text-[16px] font-[500]'>Product Name</p>

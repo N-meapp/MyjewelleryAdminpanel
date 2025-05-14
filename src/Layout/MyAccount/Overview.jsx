@@ -6,7 +6,7 @@ const Overview = () => {
         <div className=''>
             <div className='flex flex-col items-center md-mt-0 md:mt-[-20px] mt-[-75px] '>
                   <ProfileView />
-                <p className='bolkit md:text-[32px] text-[12px] md:mt-5 mt-2'>Account Overview</p>
+                <p className='bolkit md:text-[32px] text-[15px] md:mt-5 mt-2'>Account Overview</p>
             </div>
 
 

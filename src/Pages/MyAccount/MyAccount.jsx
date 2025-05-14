@@ -43,7 +43,7 @@ const MyAccount = () => {
                     {/* Sidebar */}
                     <div
                         className={`${isSidebarOpen ? "md:w-64" : "w-20"
-                            }  md:pt-[100px] md:text-white text-[#474141] flex flex-col transition-all duration-300 ease-in-out relative top-[235px] md:top-[0]`}
+                            }  md:pt-[100px] md:text-white text-[#474141] flex flex-col transition-all duration-300 ease-in-out relative top-[320px] md:top-[0]`}
                     >
                         <div className="flex items-center justify-center md:p-4">
                             <h1 className={`text-[20px] font-[600] text-[#474141] poppins md:block hidden  ${isSidebarOpen ? "block" : "hidden"}`}>My Account</h1>
@@ -93,9 +93,6 @@ const MyAccount = () => {
                                     ></div>
                                 </li>
 
-            
-
-                           
 
                             </ul>
 
@@ -114,5 +111,6 @@ const MyAccount = () => {
         </>
     );
 };
+
 
 export default MyAccount;

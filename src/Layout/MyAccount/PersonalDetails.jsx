@@ -7,38 +7,38 @@ const PersonalDetails = () => {
 
     return (
         <div className=''>
-            <div className='flex flex-col items-center '>
+            <div className='flex flex-col items-center md:mt-[-20px] mt-[-75px] '>
                 <ProfileView />
-                <p className='bolkit text-[32px] mt-5 '>Personal Details</p>
+                <p className='bolkit md:text-[32px] text-[15px] md:mt-5 mt-2 '>Personal Information</p>
             </div>
             <div className=' relative'>
-                <button type="button" onClick={() => setModalOpen(true)} class="px-10 absolute right-6 text-[#56433d] hover:text-white border border-[#56433d] hover:bg-[#56433d] focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm py-2.5 text-center me-2 mb-2">Edit details</button>
+                <button type="button" onClick={() => setModalOpen(true)} class="md:px-10 px-5 absolute md:mt-0 mt-[60px] right-6 text-[#56433d] hover:text-white border border-[#56433d] hover:bg-[#56433d] focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm md:py-2.5 py-1.5 text-center me-2 mb-2">Edit details</button>
             </div>
-            <div className='mt-16 pb-10'>
+            <div className='md:mt-10 mt-[100px] pb-10'>
                 <div>
-                    <p className='text-[17px] text-[#56433d] Poppins font-[550]'>Title</p>
-                    <p className='text-[15px] text-[#949191] Poppins font-[500] mt-2'>MS</p>
+                    <p className='md:text-[17px] text-[15px] text-[#56433d] Poppins font-[550]'>Title</p>
+                    <p className='md:text-[15px] text-[12px] text-[#949191] Poppins font-[500] mt-2'>MS</p>
                     <hr className='border border-[#b3b3b3] max-w-[70px] mt-1' />
                 </div>
                 <div className='mt-9'>
-                    <p className='text-[17px] text-[#56433d] Poppins font-[550]'>Full Name</p>
-                    <p className='text-[15px] text-[#949191] Poppins font-[500] mt-2'>Ahana.k</p>
+                    <p className='md:text-[17px] text-[15px] text-[#56433d] Poppins font-[550]'>Full Name</p>
+                    <p className='md:text-[15px] text-[12px] text-[#949191] Poppins font-[500] mt-2'>Ahana.k</p>
                     <hr className='border border-[#b3b3b3] max-w-3xl mt-1' />
                 </div>
                 <div className='mt-9'>
-                    <p className='text-[17px] text-[#56433d] Poppins font-[550]'>Address</p>
-                    <p className='text-[15px] text-[#949191] Poppins font-[500] mt-2'>123, MG Road, Kochi, Kerala, 682001</p>
+                    <p className='md:text-[17px] text-[15px] text-[#56433d] Poppins font-[550]'>Address</p>
+                    <p className='md:text-[15px] text-[12px] text-[#949191] Poppins font-[500] mt-2'>123, MG Road, Kochi, Kerala, 682001</p>
                     <hr className='border border-[#b3b3b3] max-w-3xl mt-1' />
                 </div>
                 <div className='mt-9'>
-                    <p className='text-[17px] text-[#56433d] Poppins font-[550]'>Date of birth</p>
-                    <p className='text-[15px] text-[#949191] Poppins font-[500] mt-2'>09/10/2000</p>
+                    <p className='md:text-[17px] text-[15px] text-[#56433d] Poppins font-[550]'>Date of birth</p>
+                    <p className='md:text-[15px] text-[12px] text-[#949191] Poppins font-[500] mt-2'>09/10/2000</p>
                     <hr className='border border-[#b3b3b3] max-w-sm mt-1' />
                 </div>
                 <div className='mt-9'>
-                    <p className='text-[17px] text-[#56433d] Poppins font-[550]'>Country</p>
+                    <p className='md:text-[17px] text-[15px] text-[#56433d] Poppins font-[550]'>Country</p>
                     <div className='flex gap-2'>
-                        <p className='text-[15px] text-[#949191] Poppins font-[500] mt-2'>India</p>
+                        <p className='md:text-[15px] text-[12px] text-[#949191] Poppins font-[500] mt-2'>India</p>
                         <img className='w-[20px] h-[20px] mt-2' src='/public/assets/Images/MyAccount/flag.png' />
                     </div>
                     <hr className='border border-[#b3b3b3] max-w-[200px] mt-1' />
@@ -47,12 +47,12 @@ const PersonalDetails = () => {
                     <p className='text-[20px] font-[600] poppins text-[#56433d]'>Contact details</p>
                 </div>
                 <div className='mt-9 flex gap-11'>
-                    <p className='text-[17px] text-[#56433d] Poppins font-[550]'>Phone number</p>
-                    <p className='text-[15px] text-[#878787] Poppins font-[500] '>+91 9895012345</p>
+                    <p className='md:text-[17px] text-[15px] text-[#56433d] Poppins font-[550]'>Phone number</p>
+                    <p className='md:text-[15px] text-[12px] text-[#878787] Poppins font-[500] '>+91 9895012345</p>
                 </div>
                 <div className='mt-9 flex gap-11'>
-                    <p className='text-[17px] text-[#56433d] Poppins font-[550]'>Email adress</p>
-                    <p className='text-[15px] text-[#878787] Poppins font-[500] '>Ahanakalarikkal2025@gmail.com</p>
+                    <p className='md:text-[17px] text-[15px] text-[#56433d] Poppins font-[550]'>Email adress</p>
+                    <p className='md:text-[15px] text-[12px] text-[#878787] Poppins font-[500] '>Ahanakalarikkal2025@gmail.com</p>
                 </div>
 
             </div>

@@ -46,7 +46,7 @@ export default function HomeNewArrivals() {
           <SlidingButton handleScrolling={handleScrolling} />
         </div>
 
-        <div id="scrolling-div" className="mt-[50px] overflow-x-auto scrollbar-hidden ml-[-105px] md:ml-[0px]">
+        <div id="scrolling-div" className="md:mt-[70px] mt-[50px] overflow-x-auto scrollbar-hidden ml-[-105px] md:ml-[0px]">
           <div className="w-max flex gap-[21px]">
             {golds?.map((item, i) => {
               if (i < 7) {

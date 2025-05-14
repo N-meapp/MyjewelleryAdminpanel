@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function CategoryTab({ image, isSelected, heading, setSelectedCategory, homeCate }) {
+export default function CategoryTab({ image, isSelected, heading, setSelectedCategory, homeCate, settselectedCategory }) {
     return (
         <>
             {isSelected ?
@@ -21,14 +21,24 @@ export default function CategoryTab({ image, isSelected, heading, setSelectedCat
                 </div>
                 :
 
-                <div onClick={() => {
-                    setSelectedCategory(heading)
-                }} className={`md:w-[234.06px] w-[90px]  md:h-[206.86px] h-[110.86px] relative transition-transform duration-500 ease-in-out hover:scale-110 cursor-pointer ${homeCate}`} style={{
-                    backgroundImage: `url(${image})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                }}
+                <div
+                    onClick={() => setSelectedCategory(heading)}
+                    className={`
+    ${settselectedCategory === heading ? 'scale-110' : 'hover:scale-110'}
+    md:w-[234.06px] w-[90px]  
+    md:h-[206.86px] h-[110.86px] 
+    relative 
+    transition-transform duration-500 ease-in-out 
+    cursor-pointer 
+    ${homeCate}
+  `}
+                    style={{
+                        backgroundImage: `url(${image})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                    }}
                 >
+
                     <div className="w-full absolute h-[35.76px] bg-[#88704F] bottom-2 flex justify-around items-center text-white">
                         <h1 className="bolkit md:text-[12px] text-[8px]">Explore now</h1>
                         <div className="w-6 h-6 md:w-8 md:h-8">
