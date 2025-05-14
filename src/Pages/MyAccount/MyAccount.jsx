@@ -8,34 +8,19 @@ import PersonalDetails from "../../Layout/MyAccount/PersonalDetails";
 
 
 const MyAccount = () => {
-    const [activeTab, setActiveTab] = useState('dashboard');
+    const [activeTab, setActiveTab] = useState('overview');
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
 
     const renderContent = () => {
         switch (activeTab) {
-            case 'dashboard':
+            case 'overview':
                 return <div><Overview /></div>;
-            case 'products':
-
-                return <div><Overview /></div>;
-
+            case 'personaldetails':
                 return <div><PersonalDetails /></div>;
-
-            case 'costumers':
-                return <div><Overview /></div>;
-            case 'orders':
+            case 'whishlist':
                 return <div><Wishlist /></div>;
-            case 'category':
-                return <div><Overview /></div>;
-            case 'enquiry':
-                return <div><Overview /></div>;
-            case 'slider_ad':
-                return <div><Overview /></div>;
-            case 'settings':
-                return <div>Change your Settings here.</div>;
-            case 'logout':
-                return <div>You have logged out!</div>;
+
             default:
                 return <div>Select a menu item to see the content.</div>;
         }
@@ -67,79 +52,55 @@ const MyAccount = () => {
                         <nav className="flex-1 mx-8 items-center  ">
                             <ul className="md:space-y-4 flex md:block md:text-[16px] text-[14px] overflow-x-auto md:overflow-visible pb-2 gap-7 md:gap-0 whitespace-nowrap no-scrollbar">
                                 <li
-                                    onClick={() => setActiveTab("dashboard")}
-                                    className={`flex items-center flex-col justify-center cursor-pointer gap-4 md:hover:bg-[#896a61] md:hover:text-[#ffffff] transition ease-in-out duration-300 p-2 rounded-xl poppins relative group ${activeTab === "dashboard"
-                                            ? "md:text-[#fff] md:shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] md:bg-[#56433d] rounded-xl"
-                                            : "md:text-[#474141]"
+                                    onClick={() => setActiveTab("overview")}
+                                    className={`flex items-center flex-col justify-center cursor-pointer gap-4 md:hover:bg-[#896a61] md:hover:text-[#ffffff] transition ease-in-out duration-300 p-2 rounded-xl poppins relative group ${activeTab === "overview"
+                                        ? "md:text-[#fff] md:shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] md:bg-[#56433d] rounded-xl"
+                                        : "md:text-[#474141]"
                                         }`}
                                 >
                                     <span className={isSidebarOpen ? "block" : "hidden"}>Overview</span>
                                     <div
-                                        className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#6B3535] transform transition-transform duration-300 ease-in-out md:hidden ${activeTab === "dashboard" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                                        className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#6B3535] transform transition-transform duration-300 ease-in-out md:hidden ${activeTab === "overview" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                                             }`}
                                     ></div>
                                 </li>
 
                                 <li
-                                    onClick={() => setActiveTab("products")}
-                                    className={`flex items-center flex-col justify-center cursor-pointer gap-4 md:hover:bg-[#83665d] md:hover:text-[#ffffff] transition ease-in-out duration-300 p-2 rounded-xl poppins relative group ${activeTab === "products"
-                                            ? "md:text-[#fff] md:border-indigo-500 md:shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] md:bg-[#56433d] rounded-xl"
-                                            : "md:text-[#474141]"
+                                    onClick={() => setActiveTab("personaldetails")}
+                                    className={`flex items-center flex-col justify-center cursor-pointer gap-4 md:hover:bg-[#83665d] md:hover:text-[#ffffff] transition ease-in-out duration-300 p-2 rounded-xl poppins relative group ${activeTab === "personaldetails"
+                                        ? "md:text-[#fff] md:border-indigo-500 md:shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] md:bg-[#56433d] rounded-xl"
+                                        : "md:text-[#474141]"
                                         }`}
                                 >
                                     <span className={isSidebarOpen ? "block" : "hidden"}>Personal Details</span>
                                     <div
-                                        className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#6B3535] transform transition-transform duration-300 ease-in-out md:hidden ${activeTab === "products" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                                        className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#6B3535] transform transition-transform duration-300 ease-in-out md:hidden ${activeTab === "personaldetails" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                                             }`}
                                     ></div>
                                 </li>
 
                                 <li
-                                    onClick={() => setActiveTab("orders")}
-                                    className={`flex items-center flex-col justify-center cursor-pointer gap-4 md:hover:bg-[#83665d] md:hover:text-[#ffffff] transition ease-in-out duration-300 p-2 rounded-xl poppins relative group ${activeTab === "orders"
-                                            ? "md:text-[#fff] md:border-indigo-500 md:shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] md:bg-[#56433d] rounded-xl"
-                                            : "md:text-[#474141]"
+                                    onClick={() => setActiveTab("whishlist")}
+                                    className={`flex items-center flex-col justify-center cursor-pointer gap-4 md:hover:bg-[#83665d] md:hover:text-[#ffffff] transition ease-in-out duration-300 p-2 rounded-xl poppins relative group ${activeTab === "whishlist"
+                                        ? "md:text-[#fff] md:border-indigo-500 md:shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] md:bg-[#56433d] rounded-xl"
+                                        : "md:text-[#474141]"
                                         }`}
                                 >
                                     <span className={isSidebarOpen ? "block" : "hidden"}>Wishlist</span>
                                     <div
-                                        className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#6B3535] transform transition-transform duration-300 ease-in-out md:hidden ${activeTab === "orders" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                                        className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#6B3535] transform transition-transform duration-300 ease-in-out md:hidden ${activeTab === "whishlist" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                                             }`}
                                     ></div>
                                 </li>
 
-                                <li
-                                    onClick={() => setActiveTab("category")}
-                                    className={`flex items-center flex-col justify-center cursor-pointer gap-4 md:hover:bg-[#83665d] md:hover:text-[#ffffff] transition ease-in-out duration-300 p-2 rounded-xl poppins relative group ${activeTab === "category"
-                                            ? "md:text-[#fff] md:border-indigo-500 md:shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] md:bg-[#56433d] rounded-xl"
-                                            : "md:text-[#474141]"
-                                        }`}
-                                >
-                                    <span className={isSidebarOpen ? "block" : "hidden"}>Order history</span>
-                                    <div
-                                        className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#6B3535] transform transition-transform duration-300 ease-in-out md:hidden ${activeTab === "category" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                                            }`}
-                                    ></div>
-                                </li>
+            
 
-                                <li
-                                    onClick={() => setActiveTab("enquiry")}
-                                    className={`flex items-center flex-col justify-center cursor-pointer gap-4 md:hover:bg-[#83665d] md:hover:text-[#ffffff] transition ease-in-out duration-300 p-2 rounded-xl poppins relative group ${activeTab === "enquiry"
-                                            ? "md:text-[#fff] md:border-indigo-500 md:shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] md:bg-[#56433d] rounded-xl"
-                                            : "md:text-[#474141]"
-                                        }`}
-                                >
-                                    <span className={isSidebarOpen ? "block" : "hidden"}>Edit details</span>
-                                    <div
-                                        className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#6B3535] transform transition-transform duration-300 ease-in-out md:hidden ${activeTab === "enquiry" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                                            }`}
-                                    ></div>
-                                </li>
+                           
 
                             </ul>
-                           
+
                         </nav>
-                        <hr  className='border border-[#b3b3b3] max-w-lg mt-[-10px] md:hidden ' />
+                        <hr className='border border-[#b3b3b3] max-w-lg mt-[-10px] md:hidden ' />
                     </div>
 
                     {/* Header */}

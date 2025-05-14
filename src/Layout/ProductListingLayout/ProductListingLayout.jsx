@@ -58,12 +58,13 @@ const ProductListingLayout = ({ list }) => {
     <div className="transition-all duration-500 ease-in-out mb-[50px] md:mb-0 justify-center grid">
 
       {!filter && (
+      
         <button
           onClick={() => setFilter(true)}
           type="button"
 
-          className="bg-[#fafafa] border border-none focus:outline-none hover:bg-[#eeeeee] font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ml-4 mt-2 transition-all duration-300 "
-
+          className="bg-[#fafafa] w-[45px] flex justify-center border border-none focus:outline-none hover:bg-[#eeeeee]  rounded-lg px-1 py-2 me-2 mb-2 ml-4 mt-2 transition-all duration-300 "
+          >
           <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 24 24">
             <path
               fill="none"
@@ -75,6 +76,7 @@ const ProductListingLayout = ({ list }) => {
             />
           </svg>
         </button>
+ 
       )}
 
       <div className="grid md:grid-cols-12 grid-cols-2 justify-center gap-1 w-full transition-all duration-500 ease-in-out  ">
@@ -280,8 +282,8 @@ const ProductListingLayout = ({ list }) => {
 
             <div
 
-              className={`grid gap-[15px] md:gap-[14px]  transition-all duration-500 mt-[25px] md:mt-[20px]  ${filter
-                  ? 'grid-cols-2  md:grid-cols-3 '
+              className={` grid gap-[15px] md:gap-[14px]  transition-all duration-500 mt-[25px] md:mt-[20px]  ${filter
+                  ? 'grid-cols-2  lg:grid-cols-3 w-fit'
                   : 'grid-cols-2 md:grid-cols-4 md:px-[80px]'
 
                 }`}
