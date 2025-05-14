@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Modal from '../../Components/Modal/Modal'
-import VirtualTryOn from '../../Components/AR3DModel/VirtualTryOn';
-import JewelryTryOn from '../../Components/AR3DModel/VirtualTryOn';
-import MindARComponent from '../../Components/AR3DModel/VirtualTryOn';
+import VirtualTryOn from '../../Components/AR3DModel/VirtualTryOn.jsx';
+
+
 
 const DetailHeader = () => {
     const [isModalOpen, setModalOpen] = useState(false);
@@ -83,7 +83,7 @@ const DetailHeader = () => {
                                         {/* Try it on Button */}
                                         <button
 
-                                            onClick={() => setShowTryItOn(true)}
+                                            onClick={() => setModalTryitOnOpen(true)}
                                             className={`absolute inset-0 md:w-full md:h-full  w-[128px] h-[33px] bg-white border border-[#ccc4b8] text-[#56433d] text-[13px] font-[550] rounded-[10px] px-3 py-2 flex items-center justify-center hover:bg-gray-100 shadow transition-all duration-500 ease-in-out
 
                                         ${showTryItOn ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'}`}
@@ -248,7 +248,64 @@ const DetailHeader = () => {
             />
 
 
-         {/* try it on virtual modal */}
+            <Modal
+                isOpen={isModalOpen}
+                mainModalClass={"relative p-4 w-full max-w-7xl max-h-full"}
+                modalWrapDiv={"fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-[calc(100%-1rem)] max-h-full overflow-y-auto overflow-x-hidden"}
+                onClose={() =>
+                    setModalOpen(false)}
+                content={(
+                    <div>
+                        <div className="flex flex-col items-center gap-4 py-7">
+                            <div
+                                className="relative w-[400px] h-[350px] object-cover overflow-hidden border border-[#ccc4b8] rounded-[20px]"
+                                onMouseMove={handleMouseMove}
+                                onMouseLeave={handleMouseLeave}
+                            >
+                                <img
+                                    ref={imgRef}
+                                    src={images[currentIndex]}
+                                    className="w-full h-full object-cover select-none pointer-events-none"
+                                    alt="Zoomable"
+                                />
+
+                                {showGlass && (
+                                    <div
+                                        className="absolute pointer-events-none rounded-full border-2 border-white shadow-md"
+                                        style={{
+                                            width: `${glassSize}px`,
+                                            height: `${glassSize}px`,
+                                            top: `${glassPos.y - glassSize / 2}px`,
+                                            left: `${glassPos.x - glassSize / 2}px`,
+                                            backgroundImage: `url(${images[currentIndex]})`,
+                                            backgroundRepeat: "no-repeat",
+                                            backgroundSize: `${imgRef.current.offsetWidth * zoom}px ${imgRef.current.offsetHeight * zoom}px`,
+                                            backgroundPosition: `-${glassPos.x * zoom - glassSize / 2}px -${glassPos.y * zoom - glassSize / 2}px`,
+                                            zIndex: 10,
+                                        }}
+                                    />
+                                )}
+                            </div>
+
+                            <div className="flex gap-3 mt-5">
+                                {images.map((src, index) => (
+                                    <img
+                                        key={index}
+                                        src={src}
+                                        alt={`thumb-${index}`}
+                                        className={`w-28 h-24 object-cover cursor-pointer border rounded-[10px] ${index === currentIndex ? "border-[#5f3f36] border-2" : "border-gray-300"
+                                            }`}
+                                        onClick={() => setCurrentIndex(index)}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                )}
+            />
+
+
+            {/* try it on virtual modal */}
 
             <Modal
                 isOpen={isModalTryitOnOpen}
@@ -258,11 +315,11 @@ const DetailHeader = () => {
                     setModalTryitOnOpen(false)}
                 content={(
                     <div>
-                       <MindARComponent setModalTryitOnOpen={() => setModalTryitOnOpen(false)} />
+                        <VirtualTryOn setModalTryitOnOpen={() => setModalTryitOnOpen(false)} />
+                    
                     </div>
                 )}
             />
-
         </>
     )
 }

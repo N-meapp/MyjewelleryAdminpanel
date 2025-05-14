@@ -93,11 +93,6 @@ const MyAccount = () => {
                                     ></div>
                                 </li>
 
-                                            
-
-            
-
-                           
 
                             </ul>
 
