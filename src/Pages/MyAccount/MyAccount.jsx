@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../Layout/Navbar/Navbar";
 import Footer from "../../Layout/Footer/Footer";
 import Overview from "../../Layout/MyAccount/Overview";
@@ -6,12 +6,18 @@ import Wishlist from "../../Layout/MyAccount/Wishlist";
 import DetailsNavbar from "../../Layout/ProductDetail/DetailsNavbar";
 import PersonalDetails from "../../Layout/MyAccount/PersonalDetails";
 import { AccountMobileView } from "../../Layout/Navbar/subMobileNav";
-
+import { useLocation } from "react-router-dom";
 
 const MyAccount = () => {
     const [activeTab, setActiveTab] = useState('overview');
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+    const location = useLocation();
 
+    useEffect(() => {
+        if (location.state?.message) {
+          setActiveTab(location.state.message);
+        }
+      }, [location.state?.message]); // Run only when message changes
 
     const renderContent = () => {
         switch (activeTab) {
