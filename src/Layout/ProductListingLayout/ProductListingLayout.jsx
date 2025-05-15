@@ -80,7 +80,7 @@ const ProductListingLayout = ({ list }) => {
       )}
 
 
-        className="bg-[#fafafa] w-[45px] flex justify-center border border-none focus:outline-none hover:bg-[#eeeeee]  rounded-lg px-1 py-2 me-2 mb-2 ml-4 mt-2 transition-all duration-300 "
+        {/* className="bg-[#fafafa] w-[45px] flex justify-center border border-none focus:outline-none hover:bg-[#eeeeee]  rounded-lg px-1 py-2 me-2 mb-2 ml-4 mt-2 transition-all duration-300 "
         >
         <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 24 24">
           <path
@@ -94,7 +94,7 @@ const ProductListingLayout = ({ list }) => {
         </svg>
       </button>
 
-    )}
+    )} */}
 
     <div className="grid md:grid-cols-12 grid-cols-2 justify-center gap-1 w-full transition-all duration-500 ease-in-out  ">
       {/* Left Sidebar */}

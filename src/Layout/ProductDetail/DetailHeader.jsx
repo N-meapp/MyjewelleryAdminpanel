@@ -256,20 +256,20 @@ const DetailHeader = () => {
                     setModalOpen(false)}
                 content={(
                     <div>
-                        <div className="flex flex-col items-center gap-4 py-7">
+                        <div className="flex flex-col items-center gap-2 md:gap-4 py-3 md:py-7 w-full">
                             <div
-                                className="relative w-[400px] h-[350px] object-cover overflow-hidden border border-[#ccc4b8] rounded-[20px]"
+                                className="relative w-full md:w-[400px] h-[250px] md:h-[350px] object-cover overflow-hidden border border-[#ccc4b8] rounded-[20px]"
                                 onMouseMove={handleMouseMove}
                                 onMouseLeave={handleMouseLeave}
                             >
                                 <img
                                     ref={imgRef}
-                                    src={images[currentIndex]}
+                                    src={images[currentIndex] || "/placeholder.svg"}
                                     className="w-full h-full object-cover select-none pointer-events-none"
-                                    alt="Zoomable"
+                                    alt="Zoomable product"
                                 />
 
-                                {showGlass && (
+                                {showGlass && imgRef.current && (
                                     <div
                                         className="absolute pointer-events-none rounded-full border-2 border-white shadow-md"
                                         style={{
@@ -287,13 +287,13 @@ const DetailHeader = () => {
                                 )}
                             </div>
 
-                            <div className="flex gap-3 mt-5">
+                            <div className="flex flex-wrap justify-center gap-2 md:gap-3 mt-3 md:mt-5 px-2">
                                 {images.map((src, index) => (
                                     <img
                                         key={index}
-                                        src={src}
-                                        alt={`thumb-${index}`}
-                                        className={`w-28 h-24 object-cover cursor-pointer border rounded-[10px] ${index === currentIndex ? "border-[#5f3f36] border-2" : "border-gray-300"
+                                        src={src || "/placeholder.svg"}
+                                        alt={`thumbnail-${index}`}
+                                        className={`w-14 h-12 md:w-28 md:h-24 object-cover cursor-pointer border rounded-[10px] ${index === currentIndex ? "border-[#5f3f36] border-2" : "border-gray-300"
                                             }`}
                                         onClick={() => setCurrentIndex(index)}
                                     />
@@ -316,7 +316,7 @@ const DetailHeader = () => {
                 content={(
                     <div>
                         <VirtualTryOn setModalTryitOnOpen={() => setModalTryitOnOpen(false)} />
-                    
+
                     </div>
                 )}
             />

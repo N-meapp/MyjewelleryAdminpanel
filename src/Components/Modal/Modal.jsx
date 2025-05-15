@@ -15,7 +15,7 @@ const Modal = ({ isOpen, onClose, content, mainModalClass, modalWrapDiv }) => {
                     <button
                         onClick={onClose}
                         type="button"
-                        className="absolute top-3 right-2.5 bg-[#452a1b] text-gray-400  hover:bg-[#5e3620] rounded-full text-sm w-8 h-8 flex justify-center items-center "
+                        className="absolute top-3 right-2.5 bg-[#452a1b] text-gray-400 z-50  hover:bg-[#5e3620] rounded-full text-sm w-8 h-8 flex justify-center items-center "
                     >
                         <svg
                             className="w-3 h-3 text-white"

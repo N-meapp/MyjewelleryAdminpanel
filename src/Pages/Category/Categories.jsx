@@ -18,7 +18,7 @@ import Footer from "../../Layout/Footer/Footer";
 
 
 export default function Categories() {
-    const[selectedCategory,setSelectedCategory]=useState(womens)
+    const[selectedCategory,setSelectedCategory]=useState('Womens')
     
     return (
         <>

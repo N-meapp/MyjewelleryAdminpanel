@@ -5,7 +5,7 @@ import MegaDropdown from '../MegaDropdown/MegaDropdown';
 import { categorySubData } from '../../constants/category';
 
 
-const CategoryList = ({cateNav}) => {
+const CategoryList = ({ cateNav }) => {
 
   const scrollRef = useRef(null);
   const [categoryData, setCategoryData] = useState([]);
@@ -56,14 +56,20 @@ const CategoryList = ({cateNav}) => {
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
                   <div className='flex items-center justify-center gap-2'>
-                    <img className="w-[20px]" src={item.image} alt="icon" />
+                    <img className="w-[20px] mb-1" src={item.image} alt="icon" />
                     <p className={`poppins-regular text-[13px] font-[500] ${hoveredIndex === index ? "text-[#804848]" : "text-[#474141]"}`}
                     >
                       {item.title}
                     </p>
                   </ div>
 
-                  {hoveredIndex === index ? <div className='flex justify-center px-3'> <hr className='border w-full border-[#804848] mt-1' /> </div> : <span></span>}
+                  {/* {hoveredIndex === index ? <div className='flex justify-center px-3'> <hr className='border w-full border-[#804848] mt-1' /> </div> : <span></span>} */}
+                  <div className="relative w-full h-[2px]">
+                    <div
+                      className={`absolute bottom-0 left-0  w-full h-0.5 bg-[#804848] transform transition-transform duration-300 rounded-full ease-in-out mt-3 ${hoveredIndex === index ? "scale-x-100" : "scale-x-0"
+                        }`}
+                    />
+                  </div>
 
                   {hoveredIndex === index && matchedSubData && (
                     <div className="absolute top-full mt-[-6px] left-0 z-999">
