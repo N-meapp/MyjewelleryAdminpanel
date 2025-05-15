@@ -1,6 +1,16 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
+import SideNav from '../../Components/SideNav/SideNav'
 
 const MainMobileNav = () => {
+   const [isSideNavOpen, setIsSideNavOpen] = useState(false);
+  
+      useEffect(() => {
+          const handleEsc = (e) => {
+              if (e.key === 'Escape') setIsSideNavOpen(false);
+          };
+          window.addEventListener('keydown', handleEsc);
+          return () => window.removeEventListener('keydown', handleEsc);
+      }, []);
   return (
     <>
       <div className='w-[90%]  mx-auto h-[60px] md:mt-[49px] mt-[30px] flex justify-between md:hidden  '>
@@ -27,6 +37,11 @@ const MainMobileNav = () => {
           <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="26px" viewBox="0 0 24 24"><path fill="none" stroke="#f0f0f0" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5" d="M21.25 12H8.895m-4.361 0H2.75m18.5 6.607h-5.748m-4.361 0H2.75m18.5-13.214h-3.105m-4.361 0H2.75m13.214 2.18a2.18 2.18 0 1 0 0-4.36a2.18 2.18 0 0 0 0 4.36Zm-9.25 6.607a2.18 2.18 0 1 0 0-4.36a2.18 2.18 0 0 0 0 4.36Zm6.607 6.608a2.18 2.18 0 1 0 0-4.361a2.18 2.18 0 0 0 0 4.36Z" /></svg>
         </button>
       </div>
+       <SideNav 
+
+           isOpen={isSideNavOpen}
+           onClose={() => setIsSideNavOpen(false)}
+           />
 
     </>
   )
