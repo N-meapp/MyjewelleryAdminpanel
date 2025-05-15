@@ -26,7 +26,7 @@ export default function CategoryTab({ image, isSelected, heading, setSelectedCat
                     className={`
     ${settselectedCategory === heading ? 'scale-110' : 'hover:scale-110'}
     md:w-[234.06px] w-[90px]  
-    md:h-[206.86px] h-[110.86px] 
+    md:h-[206.86px] h-[90px] 
     relative 
     transition-transform duration-500 ease-in-out 
     cursor-pointer 
@@ -39,9 +39,9 @@ export default function CategoryTab({ image, isSelected, heading, setSelectedCat
                     }}
                 >
 
-                    <div className="w-full absolute h-[35.76px] bg-[#88704F] bottom-2 flex justify-around items-center text-white">
+                    <div className="w-full absolute md:h-[35.76px] bg-[#88704F] bottom-2 flex justify-around items-center text-white">
                         <h1 className="bolkit md:text-[12px] text-[8px]">Explore now</h1>
-                        <div className="w-6 h-6 md:w-8 md:h-8">
+                        <div className="w-4 h-4 md:w-8 md:h-8">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"

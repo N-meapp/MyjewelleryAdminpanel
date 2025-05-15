@@ -11,11 +11,13 @@ const Modal = ({ isOpen, onClose, content, mainModalClass, modalWrapDiv }) => {
             className={modalWrapDiv}
         >
             <div className={mainModalClass}>
-                <div className="relative bg-white rounded-2xl dark:bg-gray-700 grow" style={{ 'box-shadow': '4px 0px 50px 0px rgba(0, 0, 0, 0.1)' }} >
+                <div className="relative bg-white rounded-2xl dark:bg-gray-700 grow " style={{ 'box-shadow': '4px 0px 50px 0px rgba(0, 0, 0, 0.1)' }} >
                     <button
                         onClick={onClose}
                         type="button"
-                        className="absolute top-3 right-2.5 bg-[#452a1b] text-gray-400 z-50  hover:bg-[#5e3620] rounded-full text-sm w-8 h-8 flex justify-center items-center "
+
+                        className="absolute top-3 right-2.5 bg-[#452a1b] text-gray-400 z-50 hover:bg-[#5e3620] rounded-full text-sm w-8 h-8 flex justify-center items-center "
+
                     >
                         <svg
                             className="w-3 h-3 text-white"

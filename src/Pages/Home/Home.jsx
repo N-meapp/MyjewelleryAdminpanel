@@ -10,12 +10,13 @@ import HomeClassicCollection from '../../Layout/HomeClassicCollection/HomeClassi
 import HomeEnquire from '../../Layout/HomeEnquire/HomeEnquire';
 import Footer from '../../Layout/Footer/Footer';
 import TopCategories from '../../Layout/HomeExplore/TopCategories';
+import MainMobileNav from '../../Layout/Navbar/MainMobileNav';
 
 
 const Home = () => {
   return (
     <>
-      <Navbar/>
+      <Navbar mobailView={<MainMobileNav/>}/>
       <MainHeader />
       <HomeExplore />
       <TopCategories/>
