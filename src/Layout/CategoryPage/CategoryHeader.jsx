@@ -40,7 +40,7 @@ export default function CategoryHeader({ setSelectedCategory, settselectedCatego
 
             <div className='md:mt-[50px] mt-[8px] md:h-[341px] h-[148px] md:rounded-[20px] justify-center flex relative ' style={{ backgroundColor: category.backgroundColor }}>
                 <svg onClick={() => window.history.back()}
-                    className="absolute top-[28.82px] left-[89px] cursor-pointer text-white" xmlns="http://www.w3.org/2000/svg" width="30px" height="37.75px"
+                    className="absolute md:top-[28.82px] md:left-[89px] cursor-pointer text-white" xmlns="http://www.w3.org/2000/svg" width="30px" height="37.75px"
                     viewBox="0 0 1024 1024"><path fill="currentColor" d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64" /><path fill="currentColor"
                         d="m237.248 512l265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312z" /></svg>
                 <p className="absolute bolkit text-white md:top-[60px] top-[10px] md:left-[130px] left-[30px] md:text-[30px] text-[13.06px]  z-10 max-w-96">{category.title}</p>
@@ -52,7 +52,7 @@ export default function CategoryHeader({ setSelectedCategory, settselectedCatego
                     </div>
                 </div>
 
-                <div className="w-fit h-[243px] absolute md:top-[236px] top-[36px] flex  gap-[23px] items-center">
+                <div className="w-fit h-[243px] absolute md:top-[236px] top-[36px] flex  md:gap-[23px] gap-[10px] items-center">
                     {headCategory.map((item) => (
 
                         <CategoryTab

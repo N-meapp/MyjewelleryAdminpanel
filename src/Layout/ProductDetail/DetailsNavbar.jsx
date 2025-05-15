@@ -51,13 +51,13 @@ const DetailsNavbar = () => {
       <svg className='cursor-pointer' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
         <path fill="none" stroke="#513535" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20.75a1 1 0 0 0 1-1v-1.246c.004-2.806-3.974-5.004-8-5.004s-8 2.198-8 5.004v1.246a1 1 0 0 0 1 1zM15.604 6.854a3.604 3.604 0 1 1-7.208 0a3.604 3.604 0 0 1 7.208 0" /></svg> */}
               <img src='/public/assets/Images/category/profile.png' className='w-12 h-12 rounded-full object-cover cursor-pointer md:block hidden ' />
-              <div class="relative flex items-center mr-[-10px] bg-[#ffffff] h-10 rounded-full px-2 transition-all duration-400 group   ">
+              <div class="relative flex items-center mr-[-10px] bg-[#ffffff] h-10 rounded-full px-2 transition-all duration-400 group  pl-[12px] ">
                 <input
                   type="text"
                   placeholder="Type to Search"
                   class="border-none bg-transparent outline-none  text-[12px] leading-10 w-0 group-hover:w-[240px] px-0 group-hover:px-2 transition-all duration-400"
                 />
-                <a href="#" class="flex  w-5 h-5 rounded-full bg-[#ffffff]  transition-all duration-400 group-hover:bg-white">
+                <a href="#" class="flex  w-5 h-5 rounded-full   transition-all duration-400 group-hover:bg-white">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#513535" className="size-4 ">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                   </svg>

@@ -4,14 +4,15 @@ import RelatedProducts from '../../Layout/CategoryPage/RelatedProducts'
 import DetailHeader from '../../Layout/ProductDetail/DetailHeader'
 import ProductDetails from '../../Layout/ProductDetail/ProductDetails'
 import PriceBreakup from '../../Layout/ProductDetail/PriceBreakup'
-import DetailsNavbar from '../../Layout/ProductDetail/DetailsNavbar'
 import JewelryTryOn from '../../Components/AR3DModel/VirtualTryOn'
+import Navbar from '../../Layout/Navbar/Navbar'
+import SubMobileNav from '../../Layout/Navbar/subMobileNav'
 
 
 const ProductDetailPage = () => {
   return (
     <div>
-        <DetailsNavbar/>
+      <Navbar mobailView={<SubMobileNav/>} />
         <DetailHeader />
         <ProductDetails />
         <PriceBreakup />
