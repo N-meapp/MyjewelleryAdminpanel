@@ -316,7 +316,7 @@ const DetailHeader = () => {
                 content={(
                     <div>
                         <VirtualTryOn setModalTryitOnOpen={() => setModalTryitOnOpen(false)} />
-                    
+
                     </div>
                 )}
             />

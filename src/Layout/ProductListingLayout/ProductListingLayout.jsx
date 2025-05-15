@@ -79,22 +79,7 @@ const ProductListingLayout = ({ list }) => {
  
       )}
 
-{/* 
-       className="bg-[#fafafa] w-[45px] flex justify-center border border-none focus:outline-none hover:bg-[#eeeeee]  rounded-lg px-1 py-2 me-2 mb-2 ml-4 mt-2 transition-all duration-300 "
-        >
-        <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 24 24">
-          <path
-            fill="none"
-            stroke="#563a14"
-            strokeLinecap="round"
-            strokeMiterlimit="10"
-            strokeWidth="1.5"
-            d="M21.25 12H8.895m-4.361 0H2.75m18.5 6.607h-5.748m-4.361 0H2.75m18.5-13.214h-3.105m-4.361 0H2.75m13.214 2.18a2.18 2.18 0 1 0 0-4.36a2.18 2.18 0 0 0 0 4.36Zm-9.25 6.607a2.18 2.18 0 1 0 0-4.36a2.18 2.18 0 0 0 0 4.36Zm6.607 6.608a2.18 2.18 0 1 0 0-4.361a2.18 2.18 0 0 0 0 4.36Z"
-          />
-        </svg>
-      </button>
 
-    )} */}
 
     <div className="grid md:grid-cols-12 grid-cols-2 justify-center gap-1 w-full transition-all duration-500 ease-in-out  ">
       {/* Left Sidebar */}
