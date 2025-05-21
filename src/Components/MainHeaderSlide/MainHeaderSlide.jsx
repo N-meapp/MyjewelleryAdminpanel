@@ -1,20 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
-const MainHeaderSlide = () => {
+const MainHeaderSlide = ({slideImg}) => {
     const [currentSlide, setCurrentSlide] = useState(0);
-
-    const slides = [
-        '/public/assets/Images/header/slide1.png',
-        '/public/assets/Images/header/slide2.png',
-        '/public/assets/Images/header/slide3.png',
-    ];
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentSlide((prev) => (prev + 1) % slides.length);
+            setCurrentSlide((prev) => (prev + 1) % slideImg.length);
         }, 3000);
         return () => clearInterval(interval);
-    }, [slides.length]);
+    }, [slideImg.length]);
 
     return (
         <div className="relative w-full max-w-md overflow-hidden mx-auto rounded-xl">
@@ -22,14 +16,14 @@ const MainHeaderSlide = () => {
                 className="flex transition-transform duration-700 ease-in-out"
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
-                {slides.map((src, index) => (
+                {slideImg.map((src, index) => (
                     <div key={index} className="w-full flex-shrink-0">
                         <img src={src} alt={`Slide ${index}`} className="w-full h-[70vh] rounded-[20px] object-cover " />
                     </div>
                 ))}
             </div>
             <div className="flex justify-center items-center gap-1.5 mt-3">
-                {slides.map((_, index) => (
+                {slideImg.map((_, index) => (
                     <span
                         key={index}
                         onClick={() => setCurrentSlide(index)}

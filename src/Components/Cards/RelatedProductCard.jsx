@@ -4,22 +4,24 @@ export default function RelatedProductCard({ item }) {
 
     const [starArray, setStarArray] = useState([1, 2, 3, 4, 5])
 
+   
+     
     return (
         <>
             <div className="w-[302px] h-auto rounded-[10px] py-[11px] px-[12px] flex flex-col gap-[6px] border-[0.5px] border-[#C8983E] cursor-pointer">
                 <div className="w-full h-[214px] overflow-hidden">
-                    <img className="transition-transform duration-500 ease-in-out hover:scale-110" src={item.image}></img>
+                    <img className="transition-transform duration-500 ease-in-out hover:scale-110" src={item.first_image}></img>
                 </div>
                 <div className="w-full h-[88.37px] relative">
-                    <h1 className="text-[16.85px] font-bold bolkit text-[#474141] truncate">{item?.name}</h1>
-                    <h1 className="text-[10px] leading-[13.48px] text-[#474141B2] instrument-san">{item.description.slice(0, 100)}<span className="text-[black] cursor-pointer"> ...more</span></h1>
+                    <h1 className="text-[16.85px] font-bold bolkit text-[#474141] truncate">{item?.head}</h1>
+                    <h1 className="text-[10px] leading-[13.48px] text-[#474141B2] instrument-san">{item.description?.slice(0, 100)}<span className="text-[black] cursor-pointer"> ...more</span></h1>
                     <div className="w-full flex absolute bottom-0 items-center justify-between">
 
                         <div className="w-fit flex">
 
                             {starArray.map((count) => {
 
-                                if (count <= item.star) {
+                                if (count <= item.average_rating) {
                                     return (
                                         <>
 
@@ -43,7 +45,7 @@ export default function RelatedProductCard({ item }) {
                             })}
                         </div>
 
-                        <h1 className="text-[15.43px] font-bold robo text-[#56433D]">{item.price}</h1>
+                        <h1 className="text-[15.43px] font-bold robo text-[#56433D]">{item.grand_total}</h1>
                     </div>
                 </div>
             </div>

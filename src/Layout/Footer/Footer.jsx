@@ -1,6 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { fetchContactData } from '../../API/userAPI'
 
 const Footer = () => {
+
+    const [contactData, setContactData] = useState([])
+
+    useEffect(() => {
+        fetchContactData(setContactData)
+    }, [])
+
     return (
         <footer className="bg-[#f0e3d3] w-full ">
             <div className="px-6 md:px-16 lg:px-24 py-10">
@@ -47,11 +55,20 @@ const Footer = () => {
                     {/* Right - Contact */}
                     <div className="lg:col-span-3 flex flex-col md:items-start items-center mt-[-216px] md:mt-12 ml-[180px] md:ml-0">
                         <p className="md:text-[20px] text-[20px] font-bold text-[#000000] mb-4">Contact Us</p>
-                        <ul className="space-y-2 text-[#423d3d] text-sm ml-[25px] md:ml-0 font-semibold">
-                            <li>+91 2345678912</li>
-                            <li>zeric123@gmail.com</li>
-                            <li>Kochi, Kerala</li>
-                        </ul>
+
+                        {contactData.map((item) => (
+                            <ul
+                                key={item.id}
+                                className="space-y-2 text-[#423d3d] text-sm ml-[25px] md:ml-0 font-semibold"
+                            >
+                                <li>{item.number}</li>
+                                <li>{item.email}</li>
+                                <li>{item.address}</li>
+                            </ul>
+                        ))}
+
+
+
                     </div>
                 </div>
 
