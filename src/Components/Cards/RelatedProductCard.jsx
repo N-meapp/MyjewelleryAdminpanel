@@ -3,17 +3,33 @@ import { useState } from "react"
 export default function RelatedProductCard({ item }) {
 
     const [starArray, setStarArray] = useState([1, 2, 3, 4, 5])
+    const [isExpanded, setIsExpanded] = useState(false)
 
+    const toggleDescription = () => {
+        setIsExpanded(!isExpanded)
+    }
     return (
         <>
             <div className="w-[302px] h-auto rounded-[10px] py-[11px] px-[12px] flex flex-col gap-[6px] border-[0.5px] border-[#C8983E] cursor-pointer">
                 <div className="w-full h-[214px] overflow-hidden">
-                    <img className="transition-transform duration-500 ease-in-out hover:scale-110" src={item.image}></img>
+                    <img className="transition-transform duration-500 ease-in-out hover:scale-110" src={item?.images?.[0]}></img>
                 </div>
                 <div className="w-full h-[88.37px] relative">
-                    <h1 className="text-[16.85px] font-bold bolkit text-[#474141] truncate">{item?.name}</h1>
-                    <h1 className="text-[10px] leading-[13.48px] text-[#474141B2] instrument-san">{item.description.slice(0, 100)}<span className="text-[black] cursor-pointer"> ...more</span></h1>
-                    <div className="w-full flex absolute bottom-0 items-center justify-between">
+                    <h1 className="text-[16.85px] font-bold bolkit text-[#474141] truncate">{item?.head}</h1>
+                    <div className="md:text-[10px] text-[9px] leading-[13.48px] text-[#474141B2] instrument-san">{item.description
+                        ? isExpanded
+                            ? item.description
+                            : item.description.slice(0, 100)
+                        : 'No description available'}
+                        {item.description.length > 100 && (
+                            <span
+                                onClick={toggleDescription}
+                                className="text-black cursor-pointer ml-1  instrument-san"
+                            >
+                                {isExpanded ? " show less" : " ...more"}
+                            </span>
+                        )}
+                    </div>                    <div className="w-full flex absolute bottom-0 items-center justify-between">
 
                         <div className="w-fit flex">
 
@@ -43,7 +59,7 @@ export default function RelatedProductCard({ item }) {
                             })}
                         </div>
 
-                        <h1 className="text-[15.43px] font-bold robo text-[#56433D]">{item.price}</h1>
+                        <h1 className="text-[15.43px] font-bold robo text-[#56433D]">₹ {item.grand_total}</h1>
                     </div>
                 </div>
             </div>

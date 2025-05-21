@@ -1,5 +1,16 @@
 import './HomeEnquire.css'
+import React, { useEffect, useState } from 'react'
+import { fetchContactdata } from '../../API/userAPI'
+
 const HomeEnquire = () => {
+
+   const [contactData, setContactData] = useState([])
+      // console.log(contactData,'homeEnquire');
+      
+      // Contact Details
+      useEffect(() => {
+          fetchContactdata(setContactData)
+      }, [])
   return (
     <div className="mt-8 md:mt-24 lg:mt-[200px]">
       {/* Header with dividers */}
@@ -59,8 +70,10 @@ const HomeEnquire = () => {
                   </svg>
                 </div>
               </div>
-
-              {/* Contact details grid */}
+              { contactData.map((item) => (
+                
+             
+            
               <div className="grid grid-cols-1 md:grid-cols-2  gap-y-6 md:gap-y-2 gap-x-4 pt-10 pl-2 md:pl-[60px]  pb-10 md:pb-[60px] contact">
                 <div className="block">
                   <div className="flex items-start gap-1 mb-1">
@@ -72,7 +85,7 @@ const HomeEnquire = () => {
                         />
                       </svg>
                     </div>
-                    <p className="text-[#888888] text-xs md:text-[16px] font-[500] inter">+91 23456 7899</p>
+                    <p className="text-[#888888] text-xs md:text-[16px] font-[500] inter">{item.number}</p>
                   </div>
                 </div>
 
@@ -86,7 +99,7 @@ const HomeEnquire = () => {
                         />
                       </svg>
                     </div>
-                    <p className="text-[#888888] text-xs md:text-[16px] font-[500] inter mt-[5px]">myjewlry@gmail.com</p>
+                    <p className="text-[#888888] text-xs md:text-[16px] font-[500] inter mt-[5px]">{item.email}</p>
                   </div>
                 </div>
 
@@ -120,11 +133,11 @@ const HomeEnquire = () => {
                         />
                       </svg>
                     </div>
-                    <p className="text-[#888888] text-xs md:text-[16px] font-[500] inter mt-[7px]">Eranakulam, Kochi</p>
+                    <p className="text-[#888888] text-xs md:text-[16px] font-[500] inter mt-[7px]">{item.address}</p>
                   </div>
                 </div>
               </div>
-
+              ))}
               {/* Button */}
               <div className="flex justify-center ">
                 <button

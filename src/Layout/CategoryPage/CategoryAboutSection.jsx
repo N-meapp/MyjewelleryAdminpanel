@@ -5,11 +5,11 @@ export default function CategoryAboutSection({ selectedCategory }) {
     // console.log(selectedCategory,'selectedCategories');
     const [categoryData, setCategoryData] = useState(womensCategory)
     useEffect(() => {
-        if (selectedCategory === 'Womens') {
+        if (selectedCategory === 2) {
             setCategoryData(womensCategory)
-        } else if (selectedCategory === 'Mens') {
+        } else if (selectedCategory === 1) {
             setCategoryData(mensCategory)
-        } else if (selectedCategory === 'Kids') {
+        } else if (selectedCategory === 3) {
             setCategoryData(kidsCategory)
         }
     }, [selectedCategory])
@@ -23,11 +23,13 @@ export default function CategoryAboutSection({ selectedCategory }) {
                         Explore
                     </button>
                 </div>
-                <img
-                    className="md:h-auto md:max-h-[700px] max-h-[300px] md:w-auto w-[113px] h-[201px] md:rounded-[4px]"
+               <div className="w-[113px] h-[201px] md:h-auto md:max-h-[700px] max-h-[300px] md:w-auto object-cover  md:rounded-[4px]">
+                 <img
+                    className=""
                     src={categoryData.video}
                     alt="category preview"
                 />
+               </div>
             </div>
 
         </>

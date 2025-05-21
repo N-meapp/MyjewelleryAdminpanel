@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 import LoadMoreButton from "../../Components/Buttons/LoadMoreButton";
 import ProductCard from "../../Components/Cards/ProductCard";
 import SecondarySearch from "../../Components/Inputs/SecondarySearch";
-import { womensCategory,kidsCategory,mensCategory } from "../../constants/category";
-import { mens,womens,kids } from "../../constants/categorySub";
+import { womensCategory, kidsCategory, mensCategory } from "../../constants/category";
+import { mens, womens, kids } from "../../constants/categorySub";
 // import { golds } from "../../constants/products";
 import CategoryAboutSection from "../../Layout/CategoryPage/CategoryAboutSection";
 import CategoryHeader from "../../Layout/CategoryPage/CategoryHeader";
@@ -18,22 +18,31 @@ import Footer from "../../Layout/Footer/Footer";
 
 
 export default function Categories() {
-    const[selectedCategory,setSelectedCategory]=useState('Womens')
+    const [selectedCategory, setSelectedCategory] = useState(2)
+    const [searchTerm, setSearchTerm] = useState('')
+    const [searchResult, setSearchResult] = useState([])
+    
     
     return (
         <>
 
             <CategoryHeader setSelectedCategory={setSelectedCategory} settselectedCategory={selectedCategory} />
-            <SecondarySearch />
+            <SecondarySearch
+                searchTerm={searchTerm}
+                setSearchTerm={setSearchTerm}
+                setSearchResult={setSearchResult}
+            />
 
             {/* <CategoryList cateNav={'w-full px-[100px] mt-[20px]'}/> */}
 
-            {/* <CategoryProductsListing list={golds} /> */}
-            <CategoryProductsListing selectedCategory={selectedCategory} />
-            
+            <CategoryProductsListing
+                searchTerm={searchTerm}
+                searchResult={searchResult}
+                selectedCategory={selectedCategory} />
+
             <CategoryAboutSection selectedCategory={selectedCategory} />
             <RelatedProducts />
-            <Footer/>
+            <Footer />
 
         </>
     )

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Navbar from '../../Layout/Navbar/Navbar';
 import MainHeader from '../../Layout/MainHeader/MainHeader';
@@ -14,9 +14,11 @@ import MainMobileNav from '../../Layout/Navbar/MainMobileNav';
 
 
 const Home = () => {
+  const [searchTerm,setSearchTerm]=useState('')
+    const [searchResult,setSearchResult]=useState([])
   return (
     <>
-      <Navbar mobailView={<MainMobileNav/>}/>
+      <Navbar mobailView={<MainMobileNav/>} searchTerm={searchTerm}   setSearchTerm={setSearchTerm} setSearchResult={setSearchResult}/>
       <MainHeader />
       <HomeExplore />
       <TopCategories/>

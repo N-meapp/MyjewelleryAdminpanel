@@ -1,13 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SlidingButton from "../../Components/Buttons/SlidingButton";
 import ProductCard from "../../Components/Cards/ProductCard";
 import RelatedProductCard from "../../Components/Cards/RelatedProductCard";
 import { golds } from "../../constants/products";
+import { fetchRelatedProductsData } from "../../API/userAPI";
 
 export default function RelatedProducts() {
 
   const [scrollPosition, setScrollPosition] = useState(200)
+  const [relatedProducts, setRelatedProducts] = useState([])
+  // console.log(relatedProducts, 'relatedd');
 
+  // Related Products
+  useEffect(() => {
+    fetchRelatedProductsData((res) => {
+      setRelatedProducts(res.products || []);
+    });
+  }, []);
 
   const handleScrolling = (position) => {
 
@@ -46,11 +55,9 @@ export default function RelatedProducts() {
 
         <div id="scrolling-div" className="md:mt-[70px] mt-[10px] overflow-x-auto scrollbar-hidden">
           <div className="w-max flex gap-[21px]">
-            {golds?.map((item, i) => {
-              if (i < 4) {
-                return <RelatedProductCard key={i} item={item} />;
-              }
-            })}
+            {relatedProducts.map((item, i) => (
+              <RelatedProductCard key={i} item={item} />
+            ))}
           </div>
         </div>
       </div>
