@@ -1,16 +1,15 @@
-import './HomeEnquire.css'
 import React, { useEffect, useState } from 'react'
-import { fetchContactdata } from '../../API/userAPI'
+import { fetchContactData } from '../../API/userAPI'
+import './HomeEnquire.css'
 
 const HomeEnquire = () => {
+  const [contactData, setContactData] = useState([])
 
-   const [contactData, setContactData] = useState([])
-      // console.log(contactData,'homeEnquire');
-      
-      // Contact Details
-      useEffect(() => {
-          fetchContactdata(setContactData)
-      }, [])
+  useEffect(() => {
+    fetchContactData(setContactData)
+  }, [])
+
+
   return (
     <div className="mt-8 md:mt-24 lg:mt-[200px]">
       {/* Header with dividers */}
@@ -70,74 +69,90 @@ const HomeEnquire = () => {
                   </svg>
                 </div>
               </div>
-              { contactData.map((item) => (
-                
+
+
+
+               {contactData.map((item)=>(
+
              
-            
               <div className="grid grid-cols-1 md:grid-cols-2  gap-y-6 md:gap-y-2 gap-x-4 pt-10 pl-2 md:pl-[60px]  pb-10 md:pb-[60px] contact">
-                <div className="block">
-                  <div className="flex items-start gap-1 mb-1">
-                    <div className="block">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
-                        <path
-                          fill="#563a14"
-                          d="m21 15.46l-5.27-.61l-2.52 2.52a15.05 15.05 0 0 1-6.59-6.59l2.53-2.53L8.54 3H3.03C2.45 13.18 10.82 21.55 21 20.97z"
-                        />
-                      </svg>
-                    </div>
-                    <p className="text-[#888888] text-xs md:text-[16px] font-[500] inter">{item.number}</p>
+              <div className="block">
+                <div className="flex items-start gap-1 mb-1">
+                  <div className="block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path
+                        fill="#563a14"
+                        d="m21 15.46l-5.27-.61l-2.52 2.52a15.05 15.05 0 0 1-6.59-6.59l2.53-2.53L8.54 3H3.03C2.45 13.18 10.82 21.55 21 20.97z"
+                      />
+                    </svg>
+
                   </div>
-                </div>
-
-                <div className="block">
-                  <div className="flex items-start gap-3 mb-1">
-                    <div className="block mt-1">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
-                        <path
-                          fill="#563a14"
-                          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.587 1.413T20 20zm8-7L4 8v10h16V8zm0-2l8-5H4zM4 8V6v12z"
-                        />
-                      </svg>
-                    </div>
-                    <p className="text-[#888888] text-xs md:text-[16px] font-[500] inter mt-[5px]">{item.email}</p>
-                  </div>
-                </div>
-
-                <div className="block">
-                  <div className="flex items-start gap-3 mb-1">
-                    <div className="block mt-1">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
-                        <path
-                          fill="#563a14"
-                          d="M12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22m0-2q3.35 0 5.675-2.325T20 12q0-.175-.012-.363t-.013-.312q-.125.725-.675 1.2T18 13h-2q-.825 0-1.412-.587T14 11v-1h-4V8q0-.825.588-1.412T12 6h1q0-.575.313-1.012t.762-.713q-.5-.125-1.012-.2T12 4Q8.65 4 6.325 6.325T4 12h5q1.65 0 2.825 1.175T13 16v1h-3v2.75q.5.125.988.188T12 20"
-                        />
-                      </svg>
-                    </div>
-                    <p className="text-[#888888] text-xs md:text-[16px] font-[500] inter mt-[6px]">Visit our website</p>
-                  </div>
-                </div>
-
-
-
-                <div className="block">
-                  <div className="flex items-start gap-3 mb-1">
-                    <div className="block mt-1">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="24" viewBox="0 0 24 24">
-                        <path
-                          fill="#563a14"
-                          d="M12 14c2.206 0 4-1.794 4-4s-1.794-4-4-4s-4 1.794-4 4s1.794 4 4 4m0-6c1.103 0 2 .897 2 2s-.897 2-2 2s-2-.897-2-2s.897-2 2-2"
-                        />
-                        <path
-                          fill="#563a14"
-                          d="M11.42 21.814a1 1 0 0 0 1.16 0C12.884 21.599 20.029 16.44 20 10c0-4.411-3.589-8-8-8S4 5.589 4 9.995c-.029 6.445 7.116 11.604 7.42 11.819M12 4c3.309 0 6 2.691 6 6.005c.021 4.438-4.388 8.423-6 9.73c-1.611-1.308-6.021-5.294-6-9.735c0-3.309 2.691-6 6-6"
-                        />
-                      </svg>
-                    </div>
-                    <p className="text-[#888888] text-xs md:text-[16px] font-[500] inter mt-[7px]">{item.address}</p>
-                  </div>
+                  <p className="text-[#888888] text-xs md:text-[16px] font-[500] inter">{item.number}</p>
                 </div>
               </div>
-              ))}
+
+
+              <div className="block">
+                <div className="flex items-start gap-3 mb-1">
+                  <div className="block mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path
+                        fill="#563a14"
+                        d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.587 1.413T20 20zm8-7L4 8v10h16V8zm0-2l8-5H4zM4 8V6v12z"
+                      />
+                    </svg>
+
+                  </div>
+                  <p className="text-[#888888] text-xs md:text-[16px] font-[500] inter mt-[5px]">{item.email}</p>
+                </div>
+              </div>
+
+              <div className="block">
+                <div className="flex items-start gap-3 mb-1">
+                  <div className="block mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                      <path
+                        fill="#563a14"
+                        d="M12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22m0-2q3.35 0 5.675-2.325T20 12q0-.175-.012-.363t-.013-.312q-.125.725-.675 1.2T18 13h-2q-.825 0-1.412-.587T14 11v-1h-4V8q0-.825.588-1.412T12 6h1q0-.575.313-1.012t.762-.713q-.5-.125-1.012-.2T12 4Q8.65 4 6.325 6.325T4 12h5q1.65 0 2.825 1.175T13 16v1h-3v2.75q.5.125.988.188T12 20"
+                      />
+                    </svg>
+                  </div>
+                  <p className="text-[#888888] text-xs md:text-[16px] font-[500] inter mt-[6px]">Visit our website</p>
+                </div>
+              </div>
+
+
+
+
+              <div className="block">
+                <div className="flex items-start gap-3 mb-1">
+                  <div className="block mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="24" viewBox="0 0 24 24">
+                      <path
+                        fill="#563a14"
+                        d="M12 14c2.206 0 4-1.794 4-4s-1.794-4-4-4s-4 1.794-4 4s1.794 4 4 4m0-6c1.103 0 2 .897 2 2s-.897 2-2 2s-2-.897-2-2s.897-2 2-2"
+                      />
+                      <path
+                        fill="#563a14"
+                        d="M11.42 21.814a1 1 0 0 0 1.16 0C12.884 21.599 20.029 16.44 20 10c0-4.411-3.589-8-8-8S4 5.589 4 9.995c-.029 6.445 7.116 11.604 7.42 11.819M12 4c3.309 0 6 2.691 6 6.005c.021 4.438-4.388 8.423-6 9.73c-1.611-1.308-6.021-5.294-6-9.735c0-3.309 2.691-6 6-6"
+                      />
+                    </svg>
+
+                  </div>
+                  <p className="text-[#888888] text-xs md:text-[16px] font-[500] inter mt-[7px]">{item.address}</p>
+                </div>
+              </div>
+
+            </div>
+
+               ))}
+             
+
+
+
+
+
+
               {/* Button */}
               <div className="flex justify-center ">
                 <button

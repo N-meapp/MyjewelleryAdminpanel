@@ -2,6 +2,12 @@ import React, { useState, useEffect, useRef } from "react";
 import './ProductListingLayout.css'
 import ProductCard from "../../Components/Cards/ProductCard";
 import { fetchProductsDataByCategory } from "../../API/userAPI";
+import { useLocation } from "react-router-dom";
+
+const ProductListingLayout = ({ list }) => {
+  const location = useLocation();
+  const id = location.state?.id
+
 
 
 const ProductListingLayout = ({ searchTerm, searchResult }) => {
@@ -99,6 +105,8 @@ const ProductListingLayout = ({ searchTerm, searchResult }) => {
           </svg>
         </button>
 
+
+
       )}
 
 
@@ -134,6 +142,7 @@ const ProductListingLayout = ({ searchTerm, searchResult }) => {
               <div>
                 <div className="bg-[#f4f4f4] w-full p-3 flex justify-center items-center">
                   <p className="text-[#7d6a4f] text-[19px] font-[500] poppins">SHOP BY CATEGORIES</p>
+
                 </div>
                 <div className="flex flex-col justify-center items-center">
                   <div className="mt-4 space-y-1 transition-opacity duration-300">
@@ -153,7 +162,20 @@ const ProductListingLayout = ({ searchTerm, searchResult }) => {
                 <div className="bg-[#f4f4f4] w-full py-3 px-11 flex justify-between items-center mt-8">
                   <p className="text-[#563a14] text-[15px] font-[500] poppins">PRICE</p>
                   <a className="text-[#85602e]" href="#">Any Price</a>
+
                 </div>
+              </div>
+
+
+              {/* Add transition to all your inner filter panels similarly */}
+              {/* PRICE, BRAND, MATERIAL, STONES, etc. can keep same content and just wrap inner sections in transition classes if needed */}
+              {/* Price Filter */}
+              <div>
+                <div className="bg-[#f4f4f4] w-full py-3 px-11 flex justify-between items-center mt-8">
+                  <p className="text-[#563a14] text-[15px] font-[500] poppins">PRICE</p>
+                  <a className="text-[#85602e]" href="#">Any Price</a>
+                </div>
+
 
                 <div className="w-full max-w-xl mx-auto p-6">
                   {/* Price Tooltips */}
@@ -297,11 +319,13 @@ const ProductListingLayout = ({ searchTerm, searchResult }) => {
           <div>
             <p
 
+
               className={`text-[20px] text-[#46322c] alice transition-all duration-500  ${filter ? '' : 'md:px-[80px]'
 
                 }`}
             >
               {productData.category}
+
             </p>
 
             <div
@@ -314,10 +338,12 @@ const ProductListingLayout = ({ searchTerm, searchResult }) => {
 
                 }`}
             >
+
               {productsToDisplay?.products?.map((item) => (
                 <ProductCard key={item.id} item={item} />
               ))}
               
+
             </div>
           </div>
         </div>

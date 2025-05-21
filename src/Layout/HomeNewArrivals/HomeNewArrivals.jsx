@@ -1,14 +1,19 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SlidingButton from "../../Components/Buttons/SlidingButton";
 import ProductCard from "../../Components/Cards/ProductCard";
 import RelatedProductCard from "../../Components/Cards/RelatedProductCard";
 import { golds } from "../../constants/products";
+import { newArrivalsFetching } from "../../API/userAPI";
 
 export default function HomeNewArrivals() {
 
   const [scrollPosition, setScrollPosition] = useState(400)
-
+  const [newArrivalsData, setNewArrivalsData]=useState([])
+   
+  useEffect(()=>{
+    newArrivalsFetching(setNewArrivalsData)
+  },[])
 
   const handleScrolling = (position) => {
 
@@ -48,10 +53,10 @@ export default function HomeNewArrivals() {
 
         <div id="scrolling-div" className="md:mt-[70px] mt-[50px] overflow-x-auto scrollbar-hidden ml-[-105px] md:ml-[0px]">
           <div className="w-max flex gap-[21px]">
-            {golds?.map((item, i) => {
-              if (i < 7) {
+            {newArrivalsData?.map((item, i) => {
+           
                 return <RelatedProductCard key={i} item={item} />;
-              }
+            
             })}
           </div>
         </div>

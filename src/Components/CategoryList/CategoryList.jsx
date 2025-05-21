@@ -3,17 +3,21 @@ import './CategoryList.css';
 import { navCategory } from '../../constants/category';
 import MegaDropdown from '../MegaDropdown/MegaDropdown';
 import { categorySubData } from '../../constants/category';
+import { fetchNavCategory } from '../../API/userAPI';
 
 
 const CategoryList = ({ cateNav }) => {
 
   const scrollRef = useRef(null);
-  const [categoryData, setCategoryData] = useState([]);
+  // const [categoryData, setCategoryData] = useState([]);
+  const [navCategoryData, setNavCategoryData] = useState([]);
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
-
+  console.log(navCategoryData, "backend fetched dataaaaa");
+  
   useEffect(() => {
-    setCategoryData(navCategory);
+    // setCategoryData(navCategory);
+    fetchNavCategory(setNavCategoryData)
   }, []);
 
   const slideLeft = () => {
@@ -43,7 +47,7 @@ const CategoryList = ({ cateNav }) => {
         <div className="overflow-x-auto scrollbar-hide" ref={scrollRef} style={{ scrollBehavior: 'smooth' }}>
           {/* relative */}
           <div className="flex gap-3 min-w-max w-[500px] ">
-            {categoryData.map((item, index) => {
+            {navCategoryData.map((item, index) => {
               const matchedSubData = categorySubData.find((data) => data.title === item.title);
 
 
@@ -59,7 +63,7 @@ const CategoryList = ({ cateNav }) => {
                     <img className="w-[20px] mb-1" src={item.image} alt="icon" />
                     <p className={`poppins-regular text-[13px] font-[500] ${hoveredIndex === index ? "text-[#804848]" : "text-[#474141]"}`}
                     >
-                      {item.title}
+                      {item.name}
                     </p>
                   </ div>
 
