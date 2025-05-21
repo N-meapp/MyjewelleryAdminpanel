@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Footer from '../../Layout/Footer/Footer'
 import RelatedProducts from '../../Layout/CategoryPage/RelatedProducts'
 import DetailHeader from '../../Layout/ProductDetail/DetailHeader'
@@ -10,9 +10,11 @@ import SubMobileNav from '../../Layout/Navbar/subMobileNav'
 
 
 const ProductDetailPage = () => {
+   const [searchTerm,setSearchTerm]=useState('')
+    const [searchResult,setSearchResult]=useState([])
   return (
     <div>
-      <Navbar mobailView={<SubMobileNav/>} />
+      <Navbar mobailView={<SubMobileNav/>}  searchTerm={searchTerm}   setSearchTerm={setSearchTerm} setSearchResult={setSearchResult} />
         <DetailHeader />
         <ProductDetails />
         <PriceBreakup />

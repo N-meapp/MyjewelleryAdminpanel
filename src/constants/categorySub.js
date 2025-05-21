@@ -242,7 +242,7 @@ export const mensCategory =
 export const kidsCategory = 
     {
         title: "Discover the Magic of Playful & Enchanting Kids' Jewelry",
-        backgroundColor: "#6D6044",
-        image: "/public/assets//Images/category/kids-banner.png",
-        gradient: "linear-gradient(to right, #6D6044 0%, #ffffff00 20%, #ffffff00 70%, #6D6044 100%)",
+        backgroundColor: "#ad9289",
+        image: "/public/assets/Videos/kidsheader.gif",
+        gradient: "linear-gradient(to right, #ad9289 0%, #ad928940 20%, #ad928940 70%, #ad9289 100%)",
       }

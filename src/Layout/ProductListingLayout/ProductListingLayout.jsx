@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import './ProductListingLayout.css'
 import ProductCard from "../../Components/Cards/ProductCard";
+import { fetchProductsDataByCategory } from "../../API/userAPI";
 import { useLocation } from "react-router-dom";
 
 const ProductListingLayout = ({ list }) => {
@@ -8,6 +9,11 @@ const ProductListingLayout = ({ list }) => {
   const id = location.state?.id
 
 
+
+const ProductListingLayout = ({ searchTerm, searchResult }) => {
+
+ 
+  
   const [minValue, setMinValue] = useState(0);
   const [maxValue, setMaxValue] = useState(50000);
   const priceGap = 5000;
@@ -23,7 +29,25 @@ const ProductListingLayout = ({ list }) => {
   ];
 
   const [filter, setFilter] = useState(true)
-  console.log(filter, "yyyy");
+  const [productData, setProductData] = useState([])
+  // console.log('productddddData', productData.products);
+
+
+  useEffect(() => {
+    if(!searchTerm){
+    fetchProductsDataByCategory(3, (data) => {
+      if (data?.products) {
+        setProductData(data);
+      } else {
+        setProductData({ products: [] });
+      }
+    });
+  }
+  }, [searchTerm]);
+
+  const productsToDisplay = searchTerm ? {products:searchResult} : productData;
+   console.log('search',searchResult);
+
 
 
   const handleMinChange = (e) => {
@@ -81,6 +105,8 @@ const ProductListingLayout = ({ list }) => {
           </svg>
         </button>
 
+
+
       )}
 
 
@@ -116,6 +142,7 @@ const ProductListingLayout = ({ list }) => {
               <div>
                 <div className="bg-[#f4f4f4] w-full p-3 flex justify-center items-center">
                   <p className="text-[#7d6a4f] text-[19px] font-[500] poppins">SHOP BY CATEGORIES</p>
+
                 </div>
                 <div className="flex flex-col justify-center items-center">
                   <div className="mt-4 space-y-1 transition-opacity duration-300">
@@ -135,7 +162,20 @@ const ProductListingLayout = ({ list }) => {
                 <div className="bg-[#f4f4f4] w-full py-3 px-11 flex justify-between items-center mt-8">
                   <p className="text-[#563a14] text-[15px] font-[500] poppins">PRICE</p>
                   <a className="text-[#85602e]" href="#">Any Price</a>
+
                 </div>
+              </div>
+
+
+              {/* Add transition to all your inner filter panels similarly */}
+              {/* PRICE, BRAND, MATERIAL, STONES, etc. can keep same content and just wrap inner sections in transition classes if needed */}
+              {/* Price Filter */}
+              <div>
+                <div className="bg-[#f4f4f4] w-full py-3 px-11 flex justify-between items-center mt-8">
+                  <p className="text-[#563a14] text-[15px] font-[500] poppins">PRICE</p>
+                  <a className="text-[#85602e]" href="#">Any Price</a>
+                </div>
+
 
                 <div className="w-full max-w-xl mx-auto p-6">
                   {/* Price Tooltips */}
@@ -279,11 +319,13 @@ const ProductListingLayout = ({ list }) => {
           <div>
             <p
 
-              className={`text-[20px] text-[#46322c] alice transition-all duration-500 hidden md:block ${filter ? '' : 'md:px-[80px]'
+
+              className={`text-[20px] text-[#46322c] alice transition-all duration-500  ${filter ? '' : 'md:px-[80px]'
 
                 }`}
             >
-              Chains
+              {productData.category}
+
             </p>
 
             <div
@@ -296,9 +338,12 @@ const ProductListingLayout = ({ list }) => {
 
                 }`}
             >
-              {list.map((item) => (
+
+              {productsToDisplay?.products?.map((item) => (
                 <ProductCard key={item.id} item={item} />
               ))}
+              
+
             </div>
           </div>
         </div>

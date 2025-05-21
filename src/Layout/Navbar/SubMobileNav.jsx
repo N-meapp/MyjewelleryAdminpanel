@@ -42,7 +42,7 @@ export const AccountMobileView = () => {
     return(
         <div className='w-[90%] px-[20px] mx-auto h-[60px] md:mt-[49px] mt-[10px] flex justify-between md:hidden'>
 
-                <svg className='md:hidden mt-[20px]  block w-[12px] h-[20px]' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 24">
+                <svg  onClick={() => window.history.back()} className='md:hidden mt-[20px]  block w-[12px] h-[20px]' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 24">
                     <path fill="#6B3535" fill-rule="evenodd" d="M10 19.438L8.955 20.5l-7.666-7.79a1.02 1.02 0 0 1 0-1.42L8.955 3.5L10 4.563L2.682 12z" /></svg>
                 <div className='flex gap-3 items-center'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="20" viewBox="0 0 256 256" >

@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function CategoryTab({ image, isSelected, heading, setSelectedCategory, homeCate, settselectedCategory }) {
+export default function CategoryTab({ image, isSelected, heading, setSelectedCategory, homeCate, settselectedCategory,id }) {
     return (
         <>
             {isSelected ?
@@ -22,9 +22,9 @@ export default function CategoryTab({ image, isSelected, heading, setSelectedCat
                 :
 
                 <div
-                    onClick={() => setSelectedCategory(heading)}
+                    onClick={() => setSelectedCategory(id)}
                     className={`
-    ${settselectedCategory === heading ? 'scale-110' : 'hover:scale-110'}
+    ${settselectedCategory === id ? 'scale-110' : 'hover:scale-110'}
     md:w-[234.06px] w-[90px]  
     md:h-[206.86px] h-[90px] 
     relative 

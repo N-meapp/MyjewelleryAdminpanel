@@ -12,12 +12,14 @@ const MyAccount = () => {
     const [activeTab, setActiveTab] = useState('overview');
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
     const location = useLocation();
+    const [searchTerm, setSearchTerm] = useState('')
+    const [searchResult, setSearchResult] = useState([])
 
     useEffect(() => {
         if (location.state?.message) {
-          setActiveTab(location.state.message);
+            setActiveTab(location.state.message);
         }
-      }, [location.state?.message]); // Run only when message changes
+    }, [location.state?.message]); // Run only when message changes
 
     const renderContent = () => {
         switch (activeTab) {
@@ -34,8 +36,8 @@ const MyAccount = () => {
     };
 
     return (
-        <> <div className="md:block hidden"> <Navbar /></div>
-            <AccountMobileView/>
+        <> <div className="md:block hidden"> <Navbar searchTerm={searchTerm}   setSearchTerm={setSearchTerm} setSearchResult={setSearchResult}/></div>
+            <AccountMobileView />
 
             <div className="md:px-[100px] md:py-[70px]">
                 <div className="md:flex md:h-[100%] ">
