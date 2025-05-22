@@ -15,10 +15,15 @@ import CategoryListing from "../../Layout/CategoryPage/CategoryProductsListing";
 import RelatedProducts from "../../Layout/CategoryPage/RelatedProducts";
 import CategoryList from "../../Components/CategoryList/CategoryList";
 import Footer from "../../Layout/Footer/Footer";
+import { useLocation } from "react-router-dom";
 
 
 export default function Categories() {
-    const [selectedCategory, setSelectedCategory] = useState(2)
+    const location = useLocation()
+    const id = location?.state?.id
+    console.log('iddd',id);
+    
+    const [selectedCategory, setSelectedCategory] = useState(id || 2)
     const [searchTerm, setSearchTerm] = useState('')
     const [searchResult, setSearchResult] = useState([])
     
