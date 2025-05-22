@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { fetchingClassicCollections } from '../../API/userAPI'
+import { useNavigate } from "react-router-dom"
 
 const HomeClassicCollection = () => {
+
   const [classicCollectionData, setClassicCollectionData] = useState([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetchingClassicCollections(setClassicCollectionData)
@@ -33,6 +36,9 @@ const HomeClassicCollection = () => {
           {classicCollectionData.map((item, index) => (
             <div
               key={item.id}
+              onClick={()=>
+                navigate(`/ProductDetailPage`,{state:{id:item.id}})
+             }
               className={`md:w-1/5 max-w-[50%] px-1 md:px-1 mb-4 md:mb-0 cursor-pointer ${index === 2 ? 'flex items-center md:mt-0 mt-[-115px]' : ''
                 }`}
             >

@@ -35,6 +35,7 @@ const ProductListingLayout = ({ searchTerm, searchResult }) => {
     fetchProductsDataByCategory(id, (data) => {
       if (data?.products) {
         setProductData(data);
+        window.scrollTo(0, 0);
       } else {
         setProductData({ products: [] });
       }

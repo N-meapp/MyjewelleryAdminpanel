@@ -20,6 +20,7 @@ const DetailHeader = () => {
 
     useEffect(() => {
         fetchProductsDetails(id, setProductData)
+        window.scrollTo(0, 0);
     }, [id])
 
     useEffect(() => {
