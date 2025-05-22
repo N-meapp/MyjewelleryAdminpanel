@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { fetchContactdata } from '../../API/userAPI'
+import { fetchContactData } from '../../API/userAPI'
 
 
 const Footer = () => {

@@ -13,7 +13,6 @@ const CategoryList = ({ cateNav }) => {
   const [navCategoryData, setNavCategoryData] = useState([]);
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
-  console.log(navCategoryData, "backend fetched dataaaaa");
   
   useEffect(() => {
     // setCategoryData(navCategory);
@@ -48,7 +47,7 @@ const CategoryList = ({ cateNav }) => {
           {/* relative */}
           <div className="flex gap-3 min-w-max w-[500px] ">
             {navCategoryData.map((item, index) => {
-              const matchedSubData = categorySubData.find((data) => data.title === item.title);
+              const matchedSubData = categorySubData.find((data) => data.title === item.name);
 
 
               return (

@@ -1,9 +1,20 @@
 import React, { useState, useRef, useEffect } from "react";
 import AccordionItem from "../../Components/AccordionItem/AccordionItem";
+import { fetchProductsDetails } from "../../API/userAPI";
+import { useLocation } from "react-router-dom";
 
 const ProductDetails = () => {
+    const location = useLocation()
     const [openIndex, setOpenIndex] = useState(0); // <-- Default open the first item
+    const [productData,setProductData]=useState([])
+    console.log('pro-data',productData);
+    
+    const id= location?.state?.id
 
+    useEffect(()=>{
+      fetchProductsDetails(id,setProductData)
+    },[])
+    
     const toggleAccordion = (index) => {
         setOpenIndex(openIndex === index ? null : index);
     };
@@ -13,7 +24,7 @@ const ProductDetails = () => {
             title: "Metal Details",
             content: [
                 {
-                    heading: "18K",
+                    heading: productData.karat + "K",
                     discription: "Karatage"
                 },
                 {
@@ -21,7 +32,7 @@ const ProductDetails = () => {
                     discription: "Material Colour"
                 },
                 {
-                    heading: "0.902g",
+                    heading:  productData.metal_weight + "g",
                     discription: "Gross Weightr"
                 },
                 {
@@ -29,11 +40,11 @@ const ProductDetails = () => {
                     discription: "Metal"
                 },
                 {
-                    heading: "1.7cm",
+                    heading: productData.pendant_height + " cm",
                     discription: "Pendant Heightr"
                 },
                 {
-                    heading: "1 cm",
+                    heading: productData.pendant_width + " cm",
                     discription: "Pendant Width"
                 },
             ]
@@ -179,10 +190,11 @@ const ProductDetails = () => {
                     index={index}
                     title={item.title}
                     content={item.content}
-                    isOpen={openIndex === index}
+                    isOpen={openIndex === index}    
                     toggle={toggleAccordion}
                 />
             ))}
+           
         </div>
     );
 };

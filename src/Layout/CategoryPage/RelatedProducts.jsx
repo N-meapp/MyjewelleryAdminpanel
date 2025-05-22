@@ -6,7 +6,6 @@ import { golds } from "../../constants/products";
 import { fetchRelatedProductsData } from "../../API/userAPI";
 
 export default function RelatedProducts() {
-
   const [scrollPosition, setScrollPosition] = useState(200)
   const [relatedProducts, setRelatedProducts] = useState([])
   // console.log(relatedProducts, 'relatedd');
@@ -54,7 +53,8 @@ export default function RelatedProducts() {
         </div>
 
         <div id="scrolling-div" className="md:mt-[70px] mt-[10px] overflow-x-auto scrollbar-hidden">
-          <div className="w-max flex gap-[21px]">
+          <div
+           className="w-max flex gap-[21px]">
             {relatedProducts.map((item, i) => (
               <RelatedProductCard key={i} item={item} />
             ))}
