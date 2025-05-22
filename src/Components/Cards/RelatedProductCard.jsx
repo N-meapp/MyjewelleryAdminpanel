@@ -15,7 +15,7 @@ export default function RelatedProductCard({ item }) {
             <div className="w-[302px] h-auto rounded-[10px] py-[11px] px-[12px] flex flex-col gap-[6px] border-[0.5px] border-[#C8983E] cursor-pointer">
                 <div className="w-full h-[214px] overflow-hidden">
 
-                    <img className="transition-transform duration-500 ease-in-out hover:scale-110"  src={item.images ? item.images[0] : ''  || item.first_image}}></img>
+                    <img className="transition-transform duration-500 ease-in-out hover:scale-110"  src={item.images ? item.images[0] : ''  || item.first_image}></img>
                 </div>
                 <div className="w-full h-[88.37px] relative">
                     <h1 className="text-[16.85px] font-bold bolkit text-[#474141] truncate">{item?.head}</h1>
@@ -24,7 +24,7 @@ export default function RelatedProductCard({ item }) {
                             ? item.description
                             : item.description.slice(0, 100)
                         : 'No description available'}
-                        {item.description.length > 100 && (
+                        {item.description?.length > 100 && (
                             <span
                                 onClick={toggleDescription}
                                 className="text-black cursor-pointer ml-1  instrument-san"

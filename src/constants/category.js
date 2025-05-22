@@ -72,7 +72,7 @@ export const navCategory = [
   export const categorySubData = [
     {
       id: 1,
-      title: 'All Jewelry',  // Match with 'All Jewelry' from navCategory
+      title: 'All Jewellery',  // Match with 'All Jewelry' from navCategory
       image: '/icons/jewel.svg',
       description: 'Elegant handcrafted gold jewelry.',
       mega: {

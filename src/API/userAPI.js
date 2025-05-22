@@ -2,17 +2,6 @@
 import axios from 'axios';
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
-// Contact Details
-export const fetchContactdata  = async (setFetchedData) => {
-  try {
-    const result = await axios.get(`${BASE_URL}contact/`);
-    // console.log('contact',result);
-    
-     setFetchedData(result.data);
-  } catch (error) {
-     console.log(error);
-  }
-}
 
 // Category Tab 
 export const fetchGenderData = async (setFetchGenderData) => {
@@ -145,3 +134,13 @@ export const fetchNavCategory = async (setFetchedData)=>{
     }
  }
 
+
+ export const postLoginNumber = async ({ phoneNumber }) => {
+    try {
+      const phone = { phoneNumber };
+      const result = await axios.post(`${BASE_URL}userprofile/create/`, phone);
+      setFetchedData(result.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };

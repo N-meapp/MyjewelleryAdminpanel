@@ -4,15 +4,10 @@ import ProductCard from "../../Components/Cards/ProductCard";
 import { fetchProductsDataByCategory } from "../../API/userAPI";
 import { useLocation } from "react-router-dom";
 
-const ProductListingLayout = ({ list }) => {
-  const location = useLocation();
-  const id = location.state?.id
-
-
-
 const ProductListingLayout = ({ searchTerm, searchResult }) => {
 
- 
+  const location = useLocation();
+  const id = location.state?.id
   
   const [minValue, setMinValue] = useState(0);
   const [maxValue, setMaxValue] = useState(50000);
