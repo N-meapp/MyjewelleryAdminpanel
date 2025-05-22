@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
 export default function ProductCard({ item }) {
-    // console.log('items', item);
-
+    
+    const navigate = useNavigate()
+    const id = item.id
+  
+    
     const [starArray, setStarArray] = useState([1, 2, 3, 4, 5])
     const [isExpanded, setIsExpanded] = useState(false)
 
@@ -13,7 +17,11 @@ export default function ProductCard({ item }) {
 
     return (
         <>
-            <div className=" md:max-w-[302px] max-w-[180px]  h-auto rounded-[3%] md:py-[3%] md:px-[4%] px[1%] flex flex-col md:gap-[2%] p-1 border-[0.5px] border-[#C8983E] items-center ">
+            <div
+             onClick={(e)=>{e.preventDefault()
+                {navigate(`/ProductDetailPage`,{state:{id:id}})}
+             }}
+             className=" md:max-w-[302px] max-w-[180px] cursor-pointer h-auto rounded-[3%] md:py-[3%] md:px-[4%] px[1%] flex flex-col md:gap-[2%] p-1 border-[0.5px] border-[#C8983E] items-center ">
                 {/* <div className="md:w-[302px] w-[180px] md:h-auto h-[228px] md:rounded-[10px] rounded-[6px] py-[11px] px-[12px] flex flex-col  gap-[8px] border-[0.5px] border-[#C8983E]"> */}
                 <div className="md:w-full md:h-[200px] h-[108px] w-[166px]  overflow-hidden flex justify-center  ">
                     <img className="transition-transform duration-500 ease-in-out hover:scale-110" alt="product image" src={item.images ? item.images[0] : ''  || item.first_image}></img>

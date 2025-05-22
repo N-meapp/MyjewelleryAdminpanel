@@ -13,7 +13,6 @@ const CategoryList = ({ cateNav }) => {
   const [navCategoryData, setNavCategoryData] = useState([]);
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
-  console.log(navCategoryData, "backend fetched dataaaaa");
   
   useEffect(() => {
     // setCategoryData(navCategory);

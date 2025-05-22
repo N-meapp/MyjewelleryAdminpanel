@@ -1,6 +1,10 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export default function RelatedProductCard({ item }) {
+
+    const navigate = useNavigate()
+    const id = item.id
 
     const [starArray, setStarArray] = useState([1, 2, 3, 4, 5])
     const [isExpanded, setIsExpanded] = useState(false)
@@ -9,10 +13,14 @@ export default function RelatedProductCard({ item }) {
     const toggleDescription = () => {
         setIsExpanded(!isExpanded)
     }
-
+   
     return (
         <>
-            <div className="w-[302px] h-auto rounded-[10px] py-[11px] px-[12px] flex flex-col gap-[6px] border-[0.5px] border-[#C8983E] cursor-pointer">
+            <div 
+             onClick={(e)=>{e.preventDefault()
+                {navigate(`/ProductDetailPage`,{state:{id:id}})}
+             }}
+            className="w-[302px] h-auto rounded-[10px] py-[11px] px-[12px] flex flex-col gap-[6px] border-[0.5px] border-[#C8983E] cursor-pointer">
                 <div className="w-full h-[214px] overflow-hidden">
 
                     <img className="transition-transform duration-500 ease-in-out hover:scale-110"  src={item.images ? item.images[0] : ''  || item.first_image}></img>

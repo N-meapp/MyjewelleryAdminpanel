@@ -8,6 +8,8 @@ const ProductListingLayout = ({ searchTerm, searchResult }) => {
 
   const location = useLocation();
   const id = location.state?.id
+  console.log(id,'id');
+  
   
   const [minValue, setMinValue] = useState(0);
   const [maxValue, setMaxValue] = useState(50000);
@@ -22,7 +24,7 @@ const ProductListingLayout = ({ searchTerm, searchResult }) => {
     { name: 'Red', code: '#c62828' },
     { name: 'Blue', code: '#1a144f' },
   ];
-
+    
   const [filter, setFilter] = useState(true)
   const [productData, setProductData] = useState([])
   // console.log('productddddData', productData.products);
@@ -30,7 +32,7 @@ const ProductListingLayout = ({ searchTerm, searchResult }) => {
 
   useEffect(() => {
     if(!searchTerm){
-    fetchProductsDataByCategory(3, (data) => {
+    fetchProductsDataByCategory(id, (data) => {
       if (data?.products) {
         setProductData(data);
       } else {

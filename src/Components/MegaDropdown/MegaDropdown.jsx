@@ -5,7 +5,7 @@ const MegaDropdown = ({ data }) => {
     const [activeTab, setActiveTab] = useState('Category');
     const tabs = Object.keys(data?.mega || {});
 
-    console.log(data, "tttttttttttt")
+    
 
     return (
         <div className="absolute top-full w-screen left-0 right-[20px] mt-1  bg-white shadow-2xl rounded-xl  z-50 fade-inn">
