@@ -14,6 +14,7 @@ export default function CategoryHeader({ setSelectedCategory, settselectedCatego
 
     useEffect(() => {
         fetchGenderData(setCategoryData)
+        window.scrollTo(0, 0);
     }, [])
     // console.log(category,'state valueeeeee');
 
