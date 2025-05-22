@@ -5,6 +5,7 @@ import { fetchProductsDataByCategory } from "../../API/userAPI";
 import { useLocation } from "react-router-dom";
 
 const ProductListingLayout = ({ searchTerm, searchResult }) => {
+
   const location = useLocation();
   const id = location.state?.id
   console.log(id,'id');

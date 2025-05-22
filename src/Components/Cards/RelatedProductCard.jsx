@@ -22,6 +22,7 @@ export default function RelatedProductCard({ item }) {
              }}
             className="w-[302px] h-auto rounded-[10px] py-[11px] px-[12px] flex flex-col gap-[6px] border-[0.5px] border-[#C8983E] cursor-pointer">
                 <div className="w-full h-[214px] overflow-hidden">
+
                     <img className="transition-transform duration-500 ease-in-out hover:scale-110"  src={item.images ? item.images[0] : ''  || item.first_image}></img>
                 </div>
                 <div className="w-full h-[88.37px] relative">

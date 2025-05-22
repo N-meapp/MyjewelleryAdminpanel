@@ -3,7 +3,6 @@ import axios from 'axios';
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 
-
 // Category Tab 
 export const fetchGenderData = async (setFetchGenderData) => {
     try {
@@ -135,6 +134,7 @@ export const fetchNavMegaData = async (setFetchedData) => {
     }
 }
 
+
 // product details 
 export const fetchProductsDetails = async (id, setFectchProductsDetailsData) => {
     try {
@@ -144,3 +144,15 @@ export const fetchProductsDetails = async (id, setFectchProductsDetailsData) => 
         console.log(error);
     }
 }
+
+
+ export const postLoginNumber = async ({ phoneNumber }) => {
+    try {
+      const phone = { phoneNumber };
+      const result = await axios.post(`${BASE_URL}userprofile/create/`, phone);
+      setFetchedData(result.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
