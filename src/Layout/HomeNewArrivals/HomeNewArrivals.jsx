@@ -1,9 +1,7 @@
 
 import { useEffect, useState } from "react";
 import SlidingButton from "../../Components/Buttons/SlidingButton";
-import ProductCard from "../../Components/Cards/ProductCard";
 import RelatedProductCard from "../../Components/Cards/RelatedProductCard";
-import { golds } from "../../constants/products";
 import { newArrivalsFetching } from "../../API/userAPI";
 
 export default function HomeNewArrivals() {

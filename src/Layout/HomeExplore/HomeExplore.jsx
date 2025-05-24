@@ -2,16 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { fetchHomeCategory } from '../../API/userAPI'
 import { useNavigate } from "react-router-dom";
 
-const products = [
-    { id: 1, title: "Chains", image: "/public/assets/Images/products/p2.png" },
-    { id: 2, title: "Earrings", image: "/public/assets/Images/products/p2.png" },
-    { id: 3, title: "Rings", image: "/public/assets/Images/products/p2.png" },
-    { id: 4, title: "Watch", image: "/public/assets/Images/products/p2.png" },
-    { id: 5, title: "Ear Cuff", image: "/public/assets/Images/products/p2.png" },
-    { id: 6, title: "Ear Cuff", image: "/public/assets/Images/products/p2.png" },
-    { id: 7, title: "Nose Pin", image: "/public/assets/Images/products/p2.png" },
-    { id: 8, title: "View More", isButton: true },
-];
 const HomeExplore = () => {
 
     const [categoryData, setCategoryData] = useState([])
@@ -48,7 +38,7 @@ const HomeExplore = () => {
                         {/* Second row (remaining 2 items + "View More") */}
                         <div className="flex flex-wrap justify-center gap-x-4 gap-y-10 w-full">
                             {categoryData.slice(5, 7).map((product) => (
-                                <div key={product.id} className="coll h-[284px]">
+                                <div onClick={() => navigate("/ProductListing", {state: { id: `${product.id}` } })} key={product.id} className="coll h-[284px]">
                                     <div className="card h-[254px] border border-[#d2b48c] cursor-pointer overflow-hidden">
                                         <img
                                             className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
@@ -56,13 +46,15 @@ const HomeExplore = () => {
                                             alt={product.name}
                                         />
                                     </div>
-                                    <p className="text-[#563a14] text-center mt-2">{product.name}</p>
+                                    <p className="text-[#563a14] text-center mt-2 bolkit">{product.name}</p>
                                 </div>
                             ))}
 
                             {/* Static View More Card as 8th item */}
                             <div className="coll h-[284px]">
-                                <div className="card w-full h-[254px] border border-[#d2b48c] bg-[#d2b48c] relative overflow-hidden">
+                                <div 
+                                 onClick={()=>{navigate('/categories')}}
+                                 className="card w-full h-[254px] border border-[#d2b48c] bg-[#d2b48c] relative overflow-hidden cursor-pointer">
                                     <img
                                         className="w-full h-full object-cover invisible"
                                         src="/assets/Images/products/p1.png"

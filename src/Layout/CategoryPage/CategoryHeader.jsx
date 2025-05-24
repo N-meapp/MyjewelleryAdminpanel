@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import CategoryTab from "../../Components/Tabs/CategoryTab";
 import { useNavigate } from "react-router-dom";
-import { headCategory, kidsCategory, mensCategory, womensCategory } from "../../constants/categorySub";
+import { kidsCategory, mensCategory, womensCategory } from "../../constants/categorySub";
 import { fetchGenderData } from "../../API/userAPI";
 
 export default function CategoryHeader({ setSelectedCategory, settselectedCategory }) {
@@ -9,14 +9,12 @@ export default function CategoryHeader({ setSelectedCategory, settselectedCatego
 
     const [category, setCategory] = useState(mensCategory)
     const [categoryData, setCategoryData] = useState([])
-    // console.log(categoryData,'category dataaaaaaa');    
-
-
+     
     useEffect(() => {
         fetchGenderData(setCategoryData)
         window.scrollTo(0, 0);
     }, [])
-    // console.log(category,'state valueeeeee');
+    
 
     useEffect(() => {
         if (settselectedCategory === 1) {
@@ -30,7 +28,7 @@ export default function CategoryHeader({ setSelectedCategory, settselectedCatego
     return (
         <>
             <div className='w-[90%] mx-auto h-[60px] md:mt-[49px] mt-[30px] flex justify-between'>
-                <img onClick={() => navigate('/')} src='/public/assets/Images/logo/logo.png' className='md:block hidden cursor-pointer'  />
+                <img onClick={() => navigate('/')} src='/public/assets/Images/logo/logo.png' className='md:block hidden cursor-pointer' />
                 <svg className='md:hidden mt-[20px] ml-[15px] block' xmlns="http://www.w3.org/2000/svg" width="14" height="22" viewBox="0 0 12 24"><path fill="currentColor" fill-rule="evenodd" d="m3.343 12l7.071 7.071L9 20.485l-7.778-7.778a1 1 0 0 1 0-1.414L9 3.515l1.414 1.414z" /></svg>
 
                 <div className='flex gap-3 items-center'>
@@ -73,8 +71,7 @@ export default function CategoryHeader({ setSelectedCategory, settselectedCatego
                         />
 
                     ))}
-                    {/* <CategoryTab isSelected={false} image={'/assets/Images/category/kid.png'} />
-                <CategoryTab isSelected={true} image={'/assets/Images/category/women.png'} /> */}
+                  
                 </div>
             </div>
 

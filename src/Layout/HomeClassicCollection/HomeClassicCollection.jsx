@@ -12,13 +12,6 @@ const HomeClassicCollection = () => {
   },[])
 
 
-  const classicCollection = [
-    { id: 1, img: "/assets/Images/ClassicCollection/c1.png", name: "Dainty Triangle Chain", price: "₹ 25,815" },
-    { id: 2, img: "/assets/Images/ClassicCollection/c2.png", name: "Dainty Triangle Chain", price: "₹ 25,815" },
-    { id: 3, img: "/assets/Images/ClassicCollection/c3.png", name: "Dainty Triangle Chain", price: "₹ 25,815" },
-    { id: 4, img: "/assets/Images/ClassicCollection/c4.png", name: "Dainty Triangle Chain", price: "₹ 25,815" },
-  ];
-
 
   return (
 

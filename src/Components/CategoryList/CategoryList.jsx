@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import './CategoryList.css';
-import { navCategory } from '../../constants/category';
 import MegaDropdown from '../MegaDropdown/MegaDropdown';
 import { categorySubData } from '../../constants/category';
 import { fetchMegaDropdownData, fetchNavCategory } from '../../API/userAPI';

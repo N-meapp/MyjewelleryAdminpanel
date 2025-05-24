@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import SlidingButton from "../../Components/Buttons/SlidingButton";
-import ProductCard from "../../Components/Cards/ProductCard";
 import RelatedProductCard from "../../Components/Cards/RelatedProductCard";
-import { golds } from "../../constants/products";
 import { fetchRelatedProductsData } from "../../API/userAPI";
 
 export default function RelatedProducts() {
