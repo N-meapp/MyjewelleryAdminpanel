@@ -3,7 +3,7 @@ import './CategoryList.css';
 import { navCategory } from '../../constants/category';
 import MegaDropdown from '../MegaDropdown/MegaDropdown';
 import { categorySubData } from '../../constants/category';
-import { fetchNavCategory } from '../../API/userAPI';
+import { fetchMegaDropdownData, fetchNavCategory } from '../../API/userAPI';
 
 
 const CategoryList = ({ cateNav }) => {
@@ -12,11 +12,15 @@ const CategoryList = ({ cateNav }) => {
   // const [categoryData, setCategoryData] = useState([]);
   const [navCategoryData, setNavCategoryData] = useState([]);
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [megaData, setMegaData] = useState([])
 
+  console.log(megaData, "megaaa dataaaa");
+  
   
   useEffect(() => {
     // setCategoryData(navCategory);
     fetchNavCategory(setNavCategoryData)
+    fetchMegaDropdownData(setMegaData)
   }, []);
 
   const slideLeft = () => {
@@ -47,8 +51,7 @@ const CategoryList = ({ cateNav }) => {
           {/* relative */}
           <div className="flex gap-3 min-w-max w-[500px] ">
             {navCategoryData.map((item, index) => {
-              const matchedSubData = categorySubData.find((data) => data.title === item.name);
-
+              const matchedSubData = megaData.find((data) => data.title === item.name);
 
               return (
                 <div

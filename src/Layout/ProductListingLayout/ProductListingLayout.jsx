@@ -8,9 +8,9 @@ const ProductListingLayout = ({ searchTerm, searchResult }) => {
 
   const location = useLocation();
   const id = location.state?.id
-  console.log(id,'id');
   
-  
+
+
   const [minValue, setMinValue] = useState(0);
   const [maxValue, setMaxValue] = useState(50000);
   const priceGap = 5000;
@@ -24,27 +24,27 @@ const ProductListingLayout = ({ searchTerm, searchResult }) => {
     { name: 'Red', code: '#c62828' },
     { name: 'Blue', code: '#1a144f' },
   ];
-    
-  const [filter, setFilter] = useState(true)
-  const [productData, setProductData] = useState([])
-  // console.log('productddddData', productData.products);
 
+  const [filter, setFilter] = useState(true)
+  const [productData, setProductData] = useState({ products: [] });
 
   useEffect(() => {
-    if(!searchTerm){
-    fetchProductsDataByCategory(id, (data) => {
-      if (data?.products) {
-        setProductData(data);
-        window.scrollTo(0, 0);
-      } else {
-        setProductData({ products: [] });
-      }
-    });
-  }
+    if (!searchTerm) {
+      fetchProductsDataByCategory(id, (data) => {
+        if (data?.products) {
+          setProductData(data);
+          setCurrentPage(1); // Reset to first page when new data is fetched
+          window.scrollTo(0, 0);
+        } else {
+          setProductData({ products: [] });
+        }
+      });
+    }
   }, [searchTerm]);
 
-  const productsToDisplay = searchTerm ? {products:searchResult} : productData;
-   console.log('search',searchResult);
+
+  // const productsToDisplay = searchTerm ? { products: searchResult } : productData;
+  // console.log('search', searchResult);
 
 
 
@@ -77,6 +77,14 @@ const ProductListingLayout = ({ searchTerm, searchResult }) => {
   }, [minValue, maxValue]);
 
 
+
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 9;
+
+  const totalPages = Math.ceil(productData.products.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const productsToDisplay = productData.products.slice(startIndex, startIndex + itemsPerPage);
 
 
   return (
@@ -326,23 +334,82 @@ const ProductListingLayout = ({ searchTerm, searchResult }) => {
 
             </p>
 
-            <div
+            {/* <div className={` grid gap-[15px] md:gap-[14px]  transition-all duration-500 mt-[25px] md:mt-[20px]  ${filter
+              ? 'grid-cols-2  lg:grid-cols-3 w-fit'
+              : 'grid-cols-2 md:grid-cols-4 md:px-[80px]'}`}>
 
-
-              className={` grid gap-[15px] md:gap-[14px]  transition-all duration-500 mt-[25px] md:mt-[20px]  ${filter
-                ? 'grid-cols-2  lg:grid-cols-3 w-fit'
-                : 'grid-cols-2 md:grid-cols-4 md:px-[80px]'
-
-
-                }`}
-            >
-
-              {productsToDisplay?.products?.map((item) => (
-                <ProductCard key={item.id} item={item} />
+              {productsToDisplay?.map((item, index) => (
+                <ProductCard key={item.id || index} item={item} />
               ))}
-              
 
             </div>
+
+            <div className="mt-9 flex justify-center items-center gap-2">
+              <button
+                className="px-3 py-1 rounded bg-[#ebe7e3f6] text-[#732525] hover:text-[#fff] hover:bg-[#aa6b6b] disabled:opacity-50"
+                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+              >
+                Prev
+              </button>
+              {[...Array(totalPages)].map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentPage(i + 1)}
+                  className={`px-3 py-1 rounded ${currentPage === i + 1 ? 'bg-[#732525] text-white' : 'bg-gray-200 text-black'
+                    } hover:bg-[#c8983e] hover:text-[#fff]`}
+                >
+                  {i + 1}
+                </button>
+              ))}
+              <button
+                className="px-3 py-1 rounded bg-[#ebe7e3f6] text-[#732525] hover:text-[#fff] hover:bg-[#aa6b6b] disabled:opacity-50"
+                onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                disabled={currentPage === totalPages}
+              >
+                Next
+              </button>
+            </div> */}
+
+            <div className={`grid gap-[15px] md:gap-[14px] transition-all duration-500 mt-[25px] md:mt-[20px] ${filter ? 'grid-cols-2 lg:grid-cols-3 w-fit' : 'grid-cols-2 md:grid-cols-4 md:px-[80px]'
+              }`}>
+              {productsToDisplay.map((item, index) => (
+                <ProductCard key={item.id || index} item={item} />
+              ))}
+            </div>
+
+            <div className="mt-9 flex justify-center items-center gap-2">
+              <button
+                className="px-3 py-1 rounded bg-[#ebe7e3f6] text-[#732525] hover:text-white hover:bg-[#aa6b6b] disabled:opacity-50"
+                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+              >
+                Prev
+              </button>
+
+              {[...Array(totalPages)].map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentPage(i + 1)}
+                  className={`px-3 py-1 rounded ${currentPage === i + 1
+                      ? 'bg-[#732525] text-white'
+                      : 'bg-gray-200 text-black'
+                    } hover:bg-[#c8983e] hover:text-white`}
+                >
+                  {i + 1}
+                </button>
+              ))}
+
+              <button
+                className="px-3 py-1 rounded bg-[#ebe7e3f6] text-[#732525] hover:text-white hover:bg-[#aa6b6b] disabled:opacity-50"
+                onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                disabled={currentPage === totalPages}
+              >
+                Next
+              </button>
+            </div>
+
+
           </div>
         </div>
 

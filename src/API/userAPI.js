@@ -156,3 +156,16 @@ export const fetchProductsDetails = async (id, setFectchProductsDetailsData) => 
     }
   };
 
+
+  export const fetchMegaDropdownData = async (setFectchProductsDetailsData) => {
+    try {
+        const result = await axios.get(`${BASE_URL}MegaNavbar/`)
+        setFectchProductsDetailsData(result.data)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+
+  
