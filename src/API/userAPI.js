@@ -86,7 +86,7 @@ export const fetchHomeCategory = async (setFetchedData) => {
 };
 
 
-
+// New Arrivals products
 export const newArrivalsFetching = async (setFetchedData) => {
     try {
         const result = await axios.get(`${BASE_URL}products/recent-with-fallback/`);
@@ -96,7 +96,7 @@ export const newArrivalsFetching = async (setFetchedData) => {
     }
 };
 
-
+// Classic collections
 export const fetchingClassicCollections = async (setFetchedData) => {
     try {
         const result = await axios.get(`${BASE_URL}products/classic/`);
@@ -106,6 +106,7 @@ export const fetchingClassicCollections = async (setFetchedData) => {
     }
 };
 
+// Main Headers
 export const fetchHeaderData = async (setFetchedData) => {
     try {
         const result = await axios.get(`${BASE_URL}headers/`);

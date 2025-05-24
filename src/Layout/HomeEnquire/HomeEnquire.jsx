@@ -73,6 +73,7 @@ const HomeEnquire = () => {
 
 
                {contactData.map((item)=>(
+                
 
              
               <div className="grid grid-cols-1 md:grid-cols-2  gap-y-6 md:gap-y-2 gap-x-4 pt-10 pl-2 md:pl-[60px]  pb-10 md:pb-[60px] contact">

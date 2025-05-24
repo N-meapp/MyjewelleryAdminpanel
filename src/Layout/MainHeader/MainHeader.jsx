@@ -5,7 +5,7 @@ import { fetchHeaderData } from '../../API/userAPI'
 const MainHeader = () => {
   const [headerData, setHeaderData] = useState([])
 
-  console.log(headerData, "999999999");
+  // console.log(headerData, "999999999");
 
   useEffect(() => {
     fetchHeaderData(setHeaderData)

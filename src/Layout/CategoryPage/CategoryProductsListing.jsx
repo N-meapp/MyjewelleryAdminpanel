@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../../Components/Cards/ProductCard"
-import { kids, mens, womens } from "../../constants/categorySub";
 import LoadMoreButton from "../../Components/Buttons/LoadMoreButton";
 import { fetchProductsDataByGender } from "../../API/userAPI";
 

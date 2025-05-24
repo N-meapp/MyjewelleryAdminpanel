@@ -5,83 +5,91 @@
 
 
 .robo::placeholder {
-    font-family: "Roboto Flex", sans-serif;
-  }
-  
-
-  .robo{  
-    font-family: "Roboto Flex", sans-serif;
-  }
-
-  .instrument-san{
-    font-family: "Instrument Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-variation-settings:"wdth" 100;
-  }
+  font-family: "Roboto Flex", sans-serif;
+}
 
 
-  @font-face {
-    font-family: 'bolkit';
-    src: url('/public/assets/Fonts/Bolkit.ttf') format('truetype');
-  }
+.robo {
+  font-family: "Roboto Flex", sans-serif;
+}
 
-  .bolkit{
-    font-family: bolkit;
-  }
-
-  body{
-    background-color: #ffffff;
-  }
-
-  .poppins{
-    font-family: "Poppins", sans-serif;
-  }
+.instrument-san {
+  font-family: "Instrument Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
 
 
-  .scrollbar-hidden::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .scrollbar-hidden {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;     /* Firefox */
-  }
+@font-face {
+  font-family: 'bolkit';
+  src: url('/public/assets/Fonts/Bolkit.ttf') format('truetype');
+}
+
+.bolkit {
+  font-family: bolkit;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+.poppins {
+  font-family: "Poppins", sans-serif;
+}
 
 
-  .alice{
-    font-family: "Alice", serif;
-  }
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
 
 
-  .inter{
-    font-family: "Inter", sans-serif;
-    font-style: normal;
-    font-optical-sizing: auto;
-  }
+.alice {
+  font-family: "Alice", serif;
+}
 
-  .roboto-flex{
-    font-family: "Roboto Flex", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-  }
 
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
-  
-  .metamorphous-regular {
-    font-family: "Metamorphous", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  /* @theme {
+.inter {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-optical-sizing: auto;
+}
+
+.roboto-flex {
+  font-family: "Roboto Flex", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.metamorphous-regular {
+  font-family: "Metamorphous", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.scroll-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+/* @theme {
     --breakpoint-md: 30rem;
     
   } */
