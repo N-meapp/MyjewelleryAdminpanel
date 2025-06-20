@@ -1,9 +1,9 @@
-import { useState } from "react"
+    import { useState } from "react"
 import SideTab from "../../../Components/Admin/Tabs/SideTab"
 
 export default function SideBar({isShrink,selectedTab,setSelectedTab}){
 
-    const [arrayOfTabs,setArrayOfTabs] = useState(['Dashboard','Products','Categories','Header','Enquiry'])
+    const [arrayOfTabs,setArrayOfTabs] = useState(['Dashboard','Products','Categories','Header','Enquiry','Users'])
 
     return(
         <>

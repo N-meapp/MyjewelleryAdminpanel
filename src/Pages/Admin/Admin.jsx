@@ -7,6 +7,7 @@ import Products from "../../Layout/Admin/Products/Products";
 import Header from "../../Layout/Admin/Header/Header";
 import Categories from "../Category/AdminCategories";
 import AdminCategories from "../../Layout/Admin/Categories/Categories";
+import UsersList from "../../Layout/Admin/UsersList/UsersList";
 
 export default function Admin() {
 
@@ -27,6 +28,8 @@ export default function Admin() {
                             <Products />
                             : selectedTab == 'Categories' ?
                                 <AdminCategories />
+                                :selectedTab == 'Users' ?
+                                <UsersList />
                                 : selectedTab == 'Header' ?
                                     <Header /> :
                                     <></>
