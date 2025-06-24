@@ -9,10 +9,14 @@ import Login from "./Pages/Login/Login";
 import { OTPLogin } from "./Pages/Login/OTPLogin";
 import { useState } from "react";
 import AdminLogin from "./Pages/Admin/AdminLogin";
+import { useSelector } from "react-redux";
 
 export default function App() {
 
-  const [isAdmin,setIsAdmin] = useState(false)
+  const admin = useSelector((state) => state.admin.admin);
+  console.log(admin,'adddminn');
+  
+
 
 
 
@@ -20,7 +24,7 @@ export default function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/admin" element={isAdmin?<Admin />:<AdminLogin />} />
+          <Route path="/admin" element={admin?<Admin />:<AdminLogin />} />
           <Route path="/" element={<Home />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/ProductListing" element={<ProductListing />} />

@@ -64,7 +64,7 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 // Create store with the persisted reducer
-const store = createStore(persistedReducer);
+const   store = createStore(persistedReducer);
 
 // Persistor for persisting the store
 const persistor = persistStore(store);

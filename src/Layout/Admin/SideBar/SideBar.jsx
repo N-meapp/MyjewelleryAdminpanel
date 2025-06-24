@@ -3,7 +3,7 @@ import SideTab from "../../../Components/Admin/Tabs/SideTab"
 
 export default function SideBar({isShrink,selectedTab,setSelectedTab}){
 
-    const [arrayOfTabs,setArrayOfTabs] = useState(['Dashboard','Products','Categories','Header','Enquiry','Users'])
+    const [arrayOfTabs,setArrayOfTabs] = useState(['Dashboard','Products','Categories','Header','Enquiry','Users','Logout'])
 
     return(
         <>

@@ -1,5 +1,7 @@
 import { Tab } from "@material-tailwind/react";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import Swal from "sweetalert2";
 
 export default function SideTab({
   selectedTab,
@@ -8,10 +10,43 @@ export default function SideTab({
   i,
   isShrink,
 }) {
+  const dispatch = useDispatch()
+
+  const handleLogout = ()=>{
+
+    Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, logout!"
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire({
+      title: "Logged out!",
+      text: "You have logged out",
+      icon: "success"
+    }).then(()=>{
+      dispatch({ type: "ADMIN_LOGOUT" });
+    })
+  }else{
+              setSelectedTab('Dashboard');
+
+  }
+});
+
+  }
+
   return (
     <>
       <div
         onClick={() => {
+          console.log('haiii');
+          if(tab=='Logout'){
+            handleLogout()
+          }
           setSelectedTab(tab);
         }}
         className={`${
@@ -23,7 +58,7 @@ export default function SideTab({
         }`}
       >
         <div
-          className={`w-fit h-fit p-[5px] rounded-md  ${
+           className={`w-fit h-fit p-[5px] rounded-md  ${
             selectedTab == tab ? "bg-[#6e6c6c]" : "bg-[white] shadow-md"
           }`}
         >
@@ -98,9 +133,25 @@ export default function SideTab({
                 d="M10 3H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1m10 0h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1M10 13H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1m7 0a4 4 0 1 1-3.995 4.2L13 17l.005-.2A4 4 0 0 1 17 13"
               />
             </svg>
+          ) : i == 6 ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-4"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill={`${selectedTab == tab ? "white" : "red"}`}
+                fill-rule="evenodd"
+                d="M10.796 2.244C12.653 1.826 14 3.422 14 5v14c0 1.578-1.347 3.174-3.204 2.756C6.334 20.752 3 16.766 3 12s3.334-8.752 7.796-9.756m5.497 6.049a1 1 0 0 1 1.414 0l3 3a1 1 0 0 1 0 1.414l-3 3a1 1 0 0 1-1.414-1.414L17.586 13H9a1 1 0 1 1 0-2h8.586l-1.293-1.293a1 1 0 0 1 0-1.414"
+                clip-rule="evenodd"
+              />
+            </svg>
           ) : null}
         </div>
-        <h3>{tab}</h3>
+        {tab=='Logout'?
+          <h3 className="text-[red]">{tab}</h3>:
+          <h3>{tab}</h3>
+        }
       </div>
     </>
   );
